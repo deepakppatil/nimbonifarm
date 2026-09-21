@@ -1,0 +1,100 @@
+/* ==================================================================
+   Nimboni Farm — design tokens
+   Art direction: warm paper, forest ink, harvest amber, clay.
+   Deliberately NOT grey — this is soil, leaf and sun, not a dashboard.
+   ================================================================== */
+
+:root {
+  /* --- Surfaces ------------------------------------------------- */
+  --paper: #f8f3e9;
+  --paper-2: #f1e9da;
+  --paper-3: #e7dcc8;
+  --paper-card: #fffdf8;
+
+  /* --- Ink ------------------------------------------------------ */
+  --ink: #14251a;
+  --ink-2: #1f3527;
+  --ink-3: #35513d;
+  --ink-muted: #5c7566;
+
+  /* --- Botanical ------------------------------------------------ */
+  --leaf: #4c7a34;
+  --leaf-bright: #6d9e46;
+  --leaf-soft: #a8c48a;
+  --leaf-wash: #e6eddc;
+
+  /* --- Harvest -------------------------------------------------- */
+  --clay: #c2582f;
+  --clay-2: #a8462a;
+  --clay-soft: #f3d9c9;
+  --amber: #d99b1c;
+  --amber-soft: #f7e6bd;
+  --lime-zest: #b9cf3f;
+
+  /* --- Semantic ------------------------------------------------- */
+  --bg: var(--paper);
+  --text: var(--ink);
+  --text-soft: #4a6152;
+  --text-faint: #7c8f81;
+  --line: rgba(20, 37, 26, 0.12);
+  --line-strong: rgba(20, 37, 26, 0.24);
+
+  /* --- Typography ----------------------------------------------- */
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.84rem);
+  --step-0: clamp(0.95rem, 0.92rem + 0.16vw, 1.0625rem);
+  --step-1: clamp(1.1rem, 1.03rem + 0.35vw, 1.35rem);
+  --step-2: clamp(1.35rem, 1.2rem + 0.7vw, 1.9rem);
+  --step-3: clamp(1.7rem, 1.4rem + 1.4vw, 2.75rem);
+  --step-4: clamp(2.1rem, 1.5rem + 2.6vw, 4rem);
+  --step-5: clamp(2.6rem, 1.5rem + 5vw, 5.75rem);
+
+  /* --- Space ---------------------------------------------------- */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --measure: 62ch;
+  --max: 1280px;
+  --max-narrow: 780px;
+
+  /* --- Radius --------------------------------------------------- */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 18px;
+  --r-xl: 28px;
+  --r-2xl: 40px;
+  --r-blob: 46% 54% 52% 48% / 48% 46% 54% 52%;
+
+  /* --- Elevation (warm shadows, never grey) ---------------------- */
+  --sh-1: 0 1px 2px rgba(40, 28, 12, 0.05), 0 2px 6px rgba(40, 28, 12, 0.04);
+  --sh-2: 0 2px 6px rgba(40, 28, 12, 0.06), 0 10px 24px rgba(40, 28, 12, 0.06);
+  --sh-3: 0 4px 12px rgba(40, 28, 12, 0.07), 0 24px 48px rgba(40, 28, 12, 0.09);
+  --sh-4: 0 8px 20px rgba(40, 28, 12, 0.09), 0 40px 80px rgba(40, 28, 12, 0.14);
+
+  /* --- Motion --------------------------------------------------- */
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --e-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --t-fast: 160ms var(--e-out);
+  --t-base: 280ms var(--e-out);
+  --t-slow: 560ms var(--e-out);
+
+  /* --- Layout --------------------------------------------------- */
+  --header-h: 72px;
+}
+
+/* Paper grain — one SVG noise tile, applied once, at very low opacity. */
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+}
