@@ -16,18 +16,18 @@ export const FARM = {
   // TODO: replace with the real postal address
   address: [
     'Nimboni Farm',
-    'Survey No. 123/4, Near Green Valley',
-    'Taluka — Maharashtra 410XXX',
+    'Taluka - Erandol',
+    'Maharashtra 425109',
     'India',
   ],
-  mapUrl: 'https://maps.app.goo.gl/4yPMbCMtMhX7dhN87',
+  mapUrl: 'https://maps.app.goo.gl/E1kVSBikEybRzZaS8',
   // TODO: real driving distances. These drive the "how far" copy on the visit page.
   distanceNotes: [
-    { from: 'Pune', detail: 'Add real distance / drive time' },
-    { from: 'Mumbai', detail: 'Add real distance / drive time' },
-    { from: 'Nearest railway station', detail: 'Add real distance / drive time' },
+    { from: 'Pune', detail: '~350 Km/6 Hours' },
+    { from: 'Mumbai', detail: '~400 Km/6 Hours' },
+    { from: 'Nearest railway station', detail: 'Jalgaon / 40 Mins' },
   ],
-  email: 'hello@nimbonifarm.example', // TODO
+  email: 'info@nimbonifarm.com', // TODO
 }
 
 /**
@@ -35,8 +35,7 @@ export const FARM = {
  * gateway. Both numbers are placeholders in the original build.
  */
 export const CONTACTS = [
-  { person: 'Mr. Foo Bar', number: '+919930123456', role: 'Stays & bookings' }, // TODO
-  { person: 'Mrs. Foo Bar', number: '+919930456789', role: 'Courses & groups' }, // TODO
+  { person: 'Admin@Nimboni', number: '+919930XXXXXX', role: 'Stays & bookings(Booking are yet to be opened' }, // TODO
 ]
 
 export const SOCIALS = [
@@ -68,7 +67,7 @@ export const HERO = {
   stats: [
     { value: 4, suffix: '', label: 'acres', sub: 'of regenerated land' },
     { value: 700, suffix: '+', label: 'trees', sub: 'across 15+ species' },
-    { value: 15, suffix: '+', label: 'species', sub: 'in the food forest' },
+    { value: 10, suffix: '+', label: 'species', sub: 'in the food forest' },
     { value: 0, suffix: '', label: 'chemicals', sub: 'since day one' },
   ],
   trust: [
