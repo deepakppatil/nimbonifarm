@@ -39,17 +39,21 @@
   --line: rgba(20, 37, 26, 0.12);
   --line-strong: rgba(20, 37, 26, 0.24);
 
-  /* --- Typography ----------------------------------------------- */
-  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  /* --- Typography -----------------------------------------------
+     Two voices only. A high-contrast editorial serif for display, set at
+     its single regular weight so size and leading do the work; a neutral
+     grotesque for everything that has to be read or tapped.
+     --------------------------------------------------------------- */
+  --font-display: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.84rem);
   --step-0: clamp(0.95rem, 0.92rem + 0.16vw, 1.0625rem);
-  --step-1: clamp(1.1rem, 1.03rem + 0.35vw, 1.35rem);
-  --step-2: clamp(1.35rem, 1.2rem + 0.7vw, 1.9rem);
-  --step-3: clamp(1.7rem, 1.4rem + 1.4vw, 2.75rem);
-  --step-4: clamp(2.1rem, 1.5rem + 2.6vw, 4rem);
-  --step-5: clamp(2.6rem, 1.5rem + 5vw, 5.75rem);
+  --step-1: clamp(1.0625rem, 1rem + 0.32vw, 1.3rem);
+  --step-2: clamp(1.375rem, 1.2rem + 0.8vw, 2rem);
+  --step-3: clamp(1.75rem, 1.4rem + 1.6vw, 2.9rem);
+  --step-4: clamp(2.15rem, 1.5rem + 2.9vw, 4.15rem);
+  --step-5: clamp(2.5rem, 1.3rem + 5.2vw, 5.9rem);
 
   /* --- Space ---------------------------------------------------- */
   --s-1: 0.25rem;

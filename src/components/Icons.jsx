@@ -142,8 +142,31 @@ export const SOCIAL_GLYPHS = {
   ),
 }
 
-export function LeafMark({ size = 32, className = '' }) {
-  const gid = `leaf-${useId().replace(/[^a-zA-Z0-9-]/g, '')}`
+/* ------------------------------------------------------------------ */
+/* Brand                                                               */
+/* ------------------------------------------------------------------ */
+
+/**
+ * The farm is named for the nim (neem). A neem leaf is pinnate — one rib
+ * carrying paired leaflets — so the mark is a sprig rather than a generic
+ * leaf shape. It reads as foliage at 16px and as botany at 128px.
+ */
+const LEAFLETS = [
+  { y: 34, rx: 8.4, ry: 2.6 },
+  { y: 26.5, rx: 7, ry: 2.2 },
+  { y: 20, rx: 5.5, ry: 1.8 },
+  { y: 14.5, rx: 4, ry: 1.4 },
+]
+
+const TERMINAL = { cx: 24, cy: 9.2, rx: 2.4, ry: 3.8 }
+
+const TILT = 26
+
+export function NimboniMark({ size = 32, className = '', tone = 'brand', badge = false }) {
+  const gid = `nim-${useId().replace(/[^a-zA-Z0-9-]/g, '')}`
+  const [top, mid, bottom] =
+    tone === 'light' ? ['#E4EFD2', '#A7C888', '#6E9B62'] : ['#8CBB52', '#4C7A34', '#1B3123']
+
   return (
     <svg
       width={size}
@@ -155,31 +178,56 @@ export function LeafMark({ size = 32, className = '' }) {
       className={className}
     >
       <defs>
-        <linearGradient id={`${gid}-a`} x1="6" y1="4" x2="42" y2="40" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#8FBC5A" />
-          <stop offset=".55" stopColor="#4C7A34" />
-          <stop offset="1" stopColor="#1F3527" />
+        <linearGradient id={`${gid}-rib`} x1="24" y1="2" x2="24" y2="46" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor={top} />
+          <stop offset=".5" stopColor={mid} />
+          <stop offset="1" stopColor={bottom} />
         </linearGradient>
       </defs>
+
+      {badge && <rect width="48" height="48" rx="14" fill={tone === 'light' ? '#14251A' : '#14251A'} />}
+
+      <g fill={`url(#${gid}-rib)`}>
+        {LEAFLETS.map(({ y, rx, ry }) => (
+          <g key={y}>
+            <ellipse cx={24 - rx} cy={y} rx={rx} ry={ry} transform={`rotate(${TILT} ${24 - rx} ${y})`} />
+            <ellipse cx={24 + rx} cy={y} rx={rx} ry={ry} transform={`rotate(${-TILT} ${24 + rx} ${y})`} />
+          </g>
+        ))}
+        <ellipse cx={TERMINAL.cx} cy={TERMINAL.cy} rx={TERMINAL.rx} ry={TERMINAL.ry} />
+      </g>
+
       <path
-        d="M24 42C24 42 9 28.5 9 18.5C9 10.5 14.2 5 24 5C33.8 5 39 10.5 39 18.5C39 28.5 24 42 24 42Z"
-        fill={`url(#${gid}-a)`}
-      />
-      <path
-        d="M22.6 41.5c0-6.2 3.4-11.6 9-15.2"
-        stroke="#F7F2E8"
-        strokeOpacity=".55"
-        strokeWidth="2"
+        d="M24 42.5C23.6 33 24.4 24 24 10.5"
+        stroke={`url(#${gid}-rib)`}
+        strokeWidth="1.9"
         strokeLinecap="round"
       />
-      <path
-        d="M22.4 30.5c-1.6-3.6-1.4-7.3.6-10.9M23 22.2c-2.6-2.1-3.1-5.6-1.2-9"
-        stroke="#F7F2E8"
-        strokeOpacity=".4"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-      <circle cx="35.5" cy="11" r="6" fill="#E3A21F" opacity=".9" />
     </svg>
+  )
+}
+
+/**
+ * Wordmark. "Nimboni" in the display serif, ".farm" set as a small sans
+ * suffix in leaf green — the brand's one deliberate flourish.
+ */
+export function Wordmark({ size = 'md', tone = 'dark', className = '' }) {
+  return (
+    <span className={`wordmark wordmark--${size} wordmark--${tone} ${className}`}>
+      <span className="wordmark__name">Nimboni</span>
+      <span className="wordmark__tld">.farm</span>
+    </span>
+  )
+}
+
+const MARK_SIZE = { sm: 22, md: 30, lg: 38, xl: 46 }
+
+/** Mark + wordmark, the standard lockup. */
+export function Logo({ size = 'md', tone = 'dark', className = '' }) {
+  return (
+    <span className={`logo logo--${size} ${className}`}>
+      <NimboniMark size={MARK_SIZE[size] ?? 30} tone={tone === 'light' ? 'light' : 'brand'} />
+      <Wordmark size={size} tone={tone} />
+    </span>
   )
 }

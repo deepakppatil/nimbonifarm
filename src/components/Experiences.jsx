@@ -1,13 +1,8 @@
 import { useState } from 'react'
 import Reveal from './Reveal.jsx'
 import { Icon } from './Icons.jsx'
+import Price from './Price.jsx'
 import { EXPERIENCES, GROUP_ENQUIRY } from '../data/site.js'
-
-const inr = new Intl.NumberFormat('en-IN', {
-  style: 'currency',
-  currency: 'INR',
-  maximumFractionDigits: 0,
-})
 
 export default function Experiences({ onChoose }) {
   const [tab, setTab] = useState(EXPERIENCES[0].id)
@@ -46,7 +41,9 @@ export default function Experiences({ onChoose }) {
                 <p className="exp-card__summary">{exp.summary}</p>
 
                 <div className="exp-card__price">
-                  <span className="exp-card__amount">{inr.format(exp.price)}</span>
+                  <span className="exp-card__amount">
+                    <Price value={exp.price} />
+                  </span>
                   <span className="exp-card__unit">{exp.priceUnit}</span>
                 </div>
                 <p className="exp-card__price-note">{exp.priceNote}</p>

@@ -1,4 +1,4 @@
-import { LeafMark, WhatsAppGlyph } from './Icons.jsx'
+import { Logo, WhatsAppGlyph } from './Icons.jsx'
 import { FARM, NAV, CONTACTS, whatsappLink } from '../data/site.js'
 import { useScrollTo } from '../lib/hooks.js'
 
@@ -11,10 +11,7 @@ export default function Footer() {
       <div className="container">
         <div className="foot__top">
           <div className="foot__brand">
-            <span className="foot__mark">
-              <LeafMark size={44} />
-            </span>
-            <p className="foot__word">Nimboni</p>
+            <Logo size="xl" tone="light" className="foot__word" />
             <p className="foot__tagline">{FARM.tagline}</p>
             <p className="foot__meta">
               {FARM.location} · established {FARM.established} · four acres of it

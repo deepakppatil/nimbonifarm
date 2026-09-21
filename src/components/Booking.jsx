@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Reveal from './Reveal.jsx'
 import { Icon, WhatsAppGlyph } from './Icons.jsx'
 import { EXPERIENCES, GROUP_ENQUIRY, CONTACTS, whatsappLink } from '../data/site.js'
+import Price from './Price.jsx'
 import { useScrollTo } from '../lib/hooks.js'
 
 const inr = new Intl.NumberFormat('en-IN', {
@@ -181,7 +182,12 @@ export default function Booking({ intent, onIntentHandled }) {
                 <p className="booking__done-summary">
                   {sent.service} · {longDate(sent.date)} · {sent.guests}{' '}
                   {sent.guests === 1 ? 'guest' : 'guests'}
-                  {sent.estimate != null ? ` · ${inr.format(sent.estimate)} estimated` : ''}
+                  {sent.estimate != null ? (
+                    <>
+                      {' · '}
+                      <Price value={sent.estimate} /> estimated
+                    </>
+                  ) : null}
                 </p>
                 <p>
                   A WhatsApp window should already be open with everything filled in — send it and
@@ -425,9 +431,7 @@ export default function Booking({ intent, onIntentHandled }) {
 
               <div className="est__total">
                 <span>Estimate</span>
-                <strong>
-                  {estimate != null ? inr.format(estimate) : 'On request'}
-                </strong>
+                <strong>{estimate != null ? <Price value={estimate} /> : 'On request'}</strong>
               </div>
               <p className="est__note">
                 {estimate != null

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Icon, LeafMark, WhatsAppGlyph } from './Icons.jsx'
+import { Icon, Logo, WhatsAppGlyph } from './Icons.jsx'
 import { FARM, NAV, CONTACTS, whatsappLink } from '../data/site.js'
 import { useScrolled, useScrollProgress, useActiveSection, useScrollTo } from '../lib/hooks.js'
 
@@ -32,10 +32,7 @@ export default function Header() {
           }}
           aria-label={`${FARM.name} — back to top`}
         >
-          <LeafMark size={30} className="hdr__mark" />
-          <span className="hdr__word">
-            Nimboni<em>.farm</em>
-          </span>
+          <Logo size="md" className="hdr__mark" />
         </a>
 
         <nav className={`hdr__nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main">

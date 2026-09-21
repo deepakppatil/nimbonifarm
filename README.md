@@ -29,11 +29,32 @@ the page instead of sitting buried in an "About" block.
 - **Parchment, forest ink, clay, harvest amber.** No neutral grey — the palette
   is soil, leaf and sun. A single low-opacity paper-grain film sits over the
   whole page to keep the photography from feeling like a screenshot.
-- **Fraunces** for display (organic, high-contrast serif with a soft, wonky
-  italic) against **Inter** for UI. Small-caps eyebrows with a leading rule are
-  the recurring editorial signature.
+- **Instrument Serif** for display against **Inter** for UI. Two voices, no
+  third. The serif ships a single weight, so headings earn their authority from
+  size and leading rather than from weight — the restraint is the point.
+  `font-synthesis: none` is set globally so the browser never fakes a bold.
 - **Photography first.** The drone imagery is the best asset the farm has, so it
   is full-bleed, un-cropped and given room to breathe.
+
+### The identity
+
+The farm is named for the **nim** (neem), so the mark is a neem sprig rather
+than a generic leaf: one rib carrying four pairs of leaflets and a terminal
+leaflet, drawn as rotated ellipses in `NimboniMark`. Neem leaves are pinnate,
+which makes the silhouette ownable — it reads as foliage at 24px and as botany
+at 96px. The geometry is balanced to sit dead-centre in its 48×48 box
+(centre 24.00, 24.00) and is symmetric to within a pixel.
+
+The wordmark sets **Nimboni** in the display serif with **.farm** as a small
+sans suffix in leaf green — the brand's one flourish. Both live in
+`src/components/Icons.jsx`.
+
+One typographic wrinkle worth knowing: neither Instrument Serif nor Inter
+ships U+20B9 (₹) — it falls outside the Google Fonts `latin` subset, so the
+browser resolves it from a system font. Rather than leave that to chance,
+`src/components/Price.jsx` sets the rupee mark deliberately in the sans voice
+at 62% size, so it reads as a considered currency mark next to the serif
+numerals instead of a mismatch.
 
 ### Structure, in the order a visitor meets it
 
@@ -141,8 +162,9 @@ No environment variables — all configuration lives in `src/data/site.js`.
 
 ## Credits
 
-- **Type**: Fraunces and Inter, both from Google Fonts
+- **Type**: Instrument Serif (display) and Inter (UI), both from Google Fonts
 - **Photography**: Nimboni Farm drone photography
+- **Mark**: neem sprig, drawn for this brand
 - **Icons**: custom SVGs, drawn for this build
 
 ---
