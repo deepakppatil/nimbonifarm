@@ -1,0 +1,95 @@
+name: Deploy to GitHub Pages
+
+# Trigger branch. Change this if you deploy from a different branch.
+# You can also run this by hand from Actions → Deploy to GitHub Pages →
+# Run workflow, which lets you deploy whatever branch you pick.
+on:
+  push:
+    branches:
+      - feature/0.1.1
+  workflow_dispatch:
+
+# Never let two deploys race each other.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Vite 8 requires Node ^20.19 || >=22.12. Do not lower this.
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # ---------------------------------------------------------------
+      # Work out the public base path.
+      #   • PAGES_BASE_PATH set      -> use it verbatim (escape hatch)
+      #   • PAGES_CUSTOM_DOMAIN set  -> '/' (site sits at the domain root)
+      #   • otherwise                -> '/<repo>/' (the *.github.io address)
+      #
+      # Both are repository variables: Settings → Secrets and variables →
+      # Actions → Variables. Neither is required — with neither set, the site
+      # deploys to https://<user>.github.io/<repo>/.
+      # ---------------------------------------------------------------
+      - name: Resolve base path
+        id: base
+        env:
+          CONFIGURED_BASE: ${{ vars.PAGES_BASE_PATH }}
+          CUSTOM_DOMAIN: ${{ vars.PAGES_CUSTOM_DOMAIN }}
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: |
+          if [ -n "$CONFIGURED_BASE" ]; then
+            base="$CONFIGURED_BASE"
+          elif [ -n "$CUSTOM_DOMAIN" ]; then
+            base="/"
+          else
+            base="/$REPO_NAME/"
+          fi
+          echo "Base path: $base"
+          echo "value=$base" >> "$GITHUB_OUTPUT"
+
+      - name: Build
+        run: npm run build
+        env:
+          BASE_PATH: ${{ steps.base.outputs.value }}
+
+      # With Actions-based deploys GitHub does not create this for you, so a
+      # custom domain will not stick without it.
+      - name: Write CNAME
+        if: vars.PAGES_CUSTOM_DOMAIN != ''
+        env:
+          CUSTOM_DOMAIN: ${{ vars.PAGES_CUSTOM_DOMAIN }}
+        run: echo "$CUSTOM_DOMAIN" > dist/CNAME
+
+      # Single-page site: hash links only, no router. Serving the app on a
+      # bad URL beats GitHub's bare 404 page.
+      - name: Add 404 fallback
+        run: cp dist/index.html dist/404.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

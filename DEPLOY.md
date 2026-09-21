@@ -53,9 +53,14 @@ Two more judgement calls, both in the PR description:
 | Netlify | 100 GB/mo | Yes | Free, auto | Yes | 300 build minutes/mo |
 | GitHub Pages | 100 GB/mo (soft) | Yes | Free, auto | Yes | No build UI; needs an Action |
 
-**Recommendation: Cloudflare Pages.** Unlimited bandwidth on the free plan, no
-credit card, commercial use allowed, and edge nodes in Mumbai, Chennai and Delhi
-— which matters when most of your visitors are on Indian mobile connections.
+**You have chosen GitHub Pages** — see section 4, which is already wired up and
+waiting on a one-time switch in your repo settings. It is the simplest option:
+no new account, no new dashboard.
+
+If you later outgrow it (100 GB/month soft cap) or want faster Indian edge
+delivery, Cloudflare Pages is the drop-in alternative — unlimited bandwidth, no
+credit card, commercial use allowed, and edge nodes in Mumbai, Chennai and
+Delhi. Section 2 covers it.
 
 Two things to note:
 
@@ -123,7 +128,10 @@ Adding both means both work; Cloudflare redirects one to the other for you.
 
 ---
 
-## 3. Point the GoDaddy domain at it
+## 3. Point the GoDaddy domain at it (Cloudflare path)
+
+Only needed if you deploy to Cloudflare Pages. For GitHub Pages DNS, see the
+end of section 4.
 
 Here is the one real complication.
 
@@ -195,69 +203,145 @@ records during this window; you will only reset the clock.
 
 ---
 
-## 4. Alternative: GitHub Pages
+## 4. Deploy to GitHub Pages from `feature/0.1.1`
 
-No new account, no new dashboard — but a 100 GB/month soft cap and you wire up
-the build yourself. Good if you would rather stay entirely inside GitHub.
+This is already wired up. `.github/workflows/deploy-pages.yml` builds the site
+and deploys it to GitHub Pages on every push to **`feature/0.1.1`**, and can be
+run by hand from the Actions tab against any branch you pick.
 
-Create `.github/workflows/deploy.yml`:
+### One-time setup (about 5 minutes)
 
-```yaml
-name: Deploy to GitHub Pages
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+**a. Turn on Pages**
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+Repo **Settings → Pages → Build and deployment → Source**, choose
+**GitHub Actions**. (Not "Deploy from a branch" — the workflow does the
+deploying.) Save.
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
+**b. Set the base path, if you are using a custom domain**
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22          # Vite 8 needs >= 22.12
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+Out of the box, with no configuration, the site deploys to
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+```
+https://deepakppatil.github.io/nimbonifarm/
 ```
 
-Then: repo **Settings → Pages → Source: GitHub Actions**, and under
-**Custom domain** enter your domain. GitHub issues the SSL certificate
-automatically.
+and the workflow builds with `BASE_PATH=/nimbonifarm/` so assets resolve under
+that subpath. That works with zero setup.
 
-For DNS with GitHub Pages, add **four A records** at the apex (GitHub's IPs are
-listed in their docs — check them, they change) and a **CNAME for `www`** pointing
-at `<user>.github.io`. Or use Option A above and let Cloudflare DNS handle it,
-which also works with GitHub Pages.
+If you attach your GoDaddy domain instead, the site sits at the domain root and
+needs `BASE_PATH=/`. Set a repository variable:
 
-Note: this workflow runs `npm ci`, which needs a clean `package-lock.json`.
-It is committed, so you are fine.
+**Settings → Secrets and variables → Actions → Variables → New repository variable**
 
----
+| Variable | Value |
+| --- | --- |
+| `PAGES_CUSTOM_DOMAIN` | `nimbonifarm.com` (bare, no `https://`) |
+
+Setting that variable does two things: builds with `BASE_PATH=/`, and writes a
+`CNAME` file into the deploy so GitHub keeps the custom domain attached. Then
+point DNS at it — see *Pointing your GoDaddy domain at GitHub Pages* below.
+
+There is also a `PAGES_BASE_PATH` variable if you ever need to force an exact
+base path. Precedence is:
+
+```
+PAGES_BASE_PATH  >  PAGES_CUSTOM_DOMAIN (=> /)  >  /<repo-name>/
+```
+
+**c. Create the branch and push**
+
+This work currently lives on `arena/01a0c5bb-nimbonifarm`. Branch off that and
+push:
+
+```bash
+git fetch origin
+git switch arena/01a0c5bb-nimbonifarm
+git switch -c feature/0.1.1
+git push -u origin feature/0.1.1
+```
+
+(If you have merged this into `develop` instead, just
+`git switch develop && git switch -c feature/0.1.1`.)
+
+The first deploy starts immediately. Watch it under the **Actions** tab — the
+whole run takes about a minute. When it goes green, GitHub prints the live URL
+in the job summary.
+
+### Why the base path matters
+
+This is the one thing that silently breaks a Vite site on GitHub Pages.
+
+GitHub serves a *project* site from `https://user.github.io/<repo>/`, not from
+the domain root. A default Vite build emits absolute asset URLs
+(`/assets/index.js`), so the browser fetches
+`https://user.github.io/assets/index.js` — which does not exist. You get an
+unstyled white page and a console full of 404s.
+
+`vite.config.js` now reads `base` from a `BASE_PATH` environment variable, and
+every public asset path goes through an `asset()` helper built on
+`import.meta.env.BASE_URL`. Both build modes are verified:
+
+```
+BASE_PATH=/            →  /assets/…, /media/…, /favicon.svg
+BASE_PATH=/nimbonifarm/ →  /nimbonifarm/assets/…, /nimbonifarm/media/…, /nimbonifarm/favicon.svg
+```
+
+### Changing the deploy branch
+
+Edit the top of `.github/workflows/deploy-pages.yml`:
+
+```yaml
+on:
+  push:
+    branches:
+      - feature/0.1.1   # <- change or add branches here
+```
+
+Or leave it and use **Actions → Deploy to GitHub Pages → Run workflow**, which
+lets you deploy any branch on demand.
+
+### Pointing your GoDaddy domain at GitHub Pages
+
+Skip this entirely if you are happy on
+`https://deepakppatil.github.io/nimbonifarm/` — that address works with no DNS
+changes at all.
+
+If you attach the custom domain, set `PAGES_CUSTOM_DOMAIN` first (above), then
+add records in **GoDaddy → DNS → Records**. Unlike Cloudflare Pages, GitHub
+Pages works fine with plain A records at the bare domain, so GoDaddy's lack of
+CNAME flattening is not a problem here.
+
+| Type | Name | Value |
+| --- | --- | --- |
+| `A` | `@` | `185.199.108.153` |
+| `A` | `@` | `185.199.109.153` |
+| `A` | `@` | `185.199.110.153` |
+| `A` | `@` | `185.199.111.153` |
+| `CNAME` | `www` | `deepakppatil.github.io` |
+
+Those four A records are GitHub's long-standing Pages IPs. **Verify them
+against GitHub's current documentation before you save** — they have been
+stable for years but I could not re-check them while writing this, and GitHub
+does occasionally change them.
+
+Do **not** add a `CNAME` at `@` — the DNS standard forbids it.
+
+Then, back in **Settings → Pages**, enter the domain. GitHub checks DNS and
+issues the SSL certificate automatically — usually within minutes, occasionally
+up to 24 hours. Tick **Enforce HTTPS** once it is issued.
+
+Remove any old `A` record pointing at `@` (GoDaddy often parks a default one
+there) or the domain will resolve to the parking page intermittently.
+
+### A note on the committed `dist/` folder
+
+`dist/` is currently tracked in git — a leftover from deploying by committing
+build output. The Actions workflow ignores it and builds from source, so the
+committed copy is now just a stale duplicate that churns ~5 MB on every commit.
+
+Once you have confirmed the Actions deploy works, it is worth untracking it
+(the files stay on your machine; history keeps the old copies). Say the word
+and it will be done.
 
 ## 5. After launch
 
