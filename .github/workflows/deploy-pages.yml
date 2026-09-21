@@ -6,7 +6,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - feature/0.1.1
+      - feature/develop
   workflow_dispatch:
 
 # Never let two deploys race each other.
