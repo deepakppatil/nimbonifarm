@@ -1,217 +1,172 @@
-# Nimboni Farm - Permaculture Farm Stay & Learning Center
+# Nimboni Farm
 
-A modern, responsive React website for Nimboni Farm — a 4-acre permaculture farm in Maharashtra, India offering farm stays, permaculture design courses, and regenerative agriculture experiences.
+Website for a four-acre permaculture farm in Maharashtra: a farm stay and a
+weekend permaculture design course. Built with React 19 + Vite.
 
-## 🌿 Overview
-
-Nimboni Farm is a thriving permaculture farm transformed from barren land since 2015. The farm hosts 700+ trees across 15+ varieties, creating a biodiverse food forest ecosystem. This website showcases the farm's offerings, enables bookings via WhatsApp, and shares the farm's regenerative agriculture journey.
-
-## ✨ Features
-
-### Core Sections
-- **Hero** — Immersive landing with animated brand icon, trust badges, and key statistics
-- **Featured Trees** — Interactive carousel showcasing 6 key tree species with animated cards
-- **About** — Farm story, permaculture principles, and certifications
-- **Services** — Farm Stay Experience (₹4,500/night) & Permaculture Design Course (₹12,000/person)
-- **Gallery** — Photo & video carousel with lightbox (supports images + drone video)
-- **Booking** — Weekend-only booking form with validation, submits via WhatsApp
-- **Contact** — Google Maps embed with animated marker, visit info, social links, WhatsApp booking
-- **Feedback** — Guest feedback wall with star ratings, stored in localStorage
-- **Footer** — Brand, quick links, copyright
-
-### Design Highlights
-- **Custom SVG Brand Icon** — Animated leaf with gradients, used in Hero (72px), Header (28px), Footer (24px)
-- **Airbnb-inspired Design System** — Inter font, neutral grays, sage green accent, subtle shadows
-- **Consistent White Background** — All sections use white/gray-50, no dark mode overrides
-- **Micro-interactions** — Hover lifts, floating animations, bounce markers, staggered reveals
-- **Accessibility** — Semantic HTML, ARIA labels, focus-visible states, keyboard navigation
-
-## 🛠 Tech Stack
-
-| Category | Technology |
-|----------|------------|
-| Framework | React 19 (functional components, hooks) |
-| Build Tool | Vite 8 |
-| Styling | Custom CSS with CSS Variables (design tokens) |
-| Fonts | Inter (Google Fonts, 300-700) |
-| Linting | oxlint (ESLint-compatible) |
-| Icons | Custom inline SVGs |
-| Deployment | Static assets (Vite build) |
-
-## 📁 Project Structure
-
-```
-permaculture-farm/
-├── index.html                 # Entry HTML with font preconnect
-├── package.json
-├── vite.config.js
-├── public/
-│   ├── favicon.svg
-│   └── icons.svg
-├── src/
-│   ├── main.jsx              # React entry point
-│   ├── index.css             # Design tokens, base styles, utilities
-│   ├── App.jsx               # All components (single file for simplicity)
-│   └── assets/
-│       └── farm-images/      # DJI drone photos + Drone.mp4
-└── dist/                     # Production build output
-```
-
-## 🎨 Design System (CSS Variables)
-
-### Colors
-```css
-/* Neutrals */
---color-gray-50  #fafafa   /* Section backgrounds */
---color-gray-100 #f5f5f5   /* Card hover, inputs */
---color-gray-500 #737373   /* Muted text */
---color-gray-700 #404040   /* Body text */
---color-gray-900 #171717   /* Headings */
-
-/* Brand */
---color-sage       #7a9e5e  /* Primary accent */
---color-sage-light #9cc47a  /* Hover states */
---color-sage-dark  #5d7a45  /* Active states */
---color-accent     #e86c4a  /* Terracotta for pricing */
-
-/* Semantic */
---color-white      #ffffff
---color-border     rgba(0,0,0,0.06)
---color-shadow     rgba(0,0,0,0.04)
-```
-
-### Typography
-- **Display & UI**: Inter (300-700)
-- **Scale**: `clamp()` fluid sizing
-- **Features**: `font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11'`
-
-### Spacing & Radius
-- **Spacing**: 4px base (`--spacing-1` through `--spacing-32`)
-- **Radius**: 8px–32px (`--radius-sm` to `--radius-2xl`)
-- **Shadows**: 4 elevation levels (`--elevation-1` to `--elevation-4`)
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+
-- npm 9+
-
-### Install & Develop
 ```bash
 npm install
-npm run dev          # Start dev server at http://localhost:5173
+npm run dev      # http://localhost:5173
+npm run build    # → dist/
+npm run preview
+npm run lint
 ```
-
-### Build & Preview
-```bash
-npm run build        # Production build to /dist
-npm run preview      # Preview production build
-npm run lint         # Run oxlint
-```
-
-## 📱 Responsive Breakpoints
-
-| Breakpoint | Width | Usage |
-|------------|-------|-------|
-| Mobile | < 640px | Single column, stacked layouts |
-| Tablet | 640–959px | 2-col grids, adjusted padding |
-| Desktop | 960–1199px | Multi-col grids, side-by-side layouts |
-| Large | ≥ 1200px | Max container width 1200px |
-
-## ♿ Accessibility
-
-- Semantic HTML5 (`header`, `main`, `section`, `footer`, `nav`, `article`)
-- ARIA labels on all interactive elements
-- `focus-visible` outlines (2px sage, 2px offset)
-- Skip link (hidden until focused)
-- Reduced motion support (`prefers-reduced-motion`)
-- Color contrast ratios ≥ 4.5:1
-- Keyboard-navigable gallery lightbox (Esc, arrows)
-
-## 🌍 SEO & Meta
-
-- **Title**: "Nimboni Farm"
-- **Description**: "Nimboni Farm - 4 acres, 700+ trees, permaculture farm stay, weekend courses in Maharashtra"
-- **Theme Color**: `#7a9e5e` (sage)
-- **Open Graph**: Ready for social sharing (add tags as needed)
-- **Sitemap**: Generate from routes for production
-
-## 📸 Assets
-
-All farm media in `src/assets/farm-images/`:
-- `DJI_0924.JPG` — Hero background (4.3 MB)
-- `DJI_0964.JPG` — Gallery image (4.1 MB)
-- `DJI_0965.JPG` — Gallery image (4.2 MB)
-- `Drone.mp4` — Drone tour video (81 MB, plays inline/muted/looped)
-
-> **Note**: Large assets are imported via Vite for hashing. For production, consider:
-> - Image optimization (WebP/AVIF, responsive sizes)
-> - Video compression / external hosting (Vimeo/YouTube)
-> - CDN delivery
-
-## 📦 Deployment
-
-### Static Hosting (Netlify, Vercel, Cloudflare Pages, GitHub Pages)
-```bash
-npm run build
-# Deploy /dist folder
-```
-
-### Build Output
-```
-dist/
-├── index.html
-├── assets/
-│   ├── index-[hash].css      (~38 KB gzipped)
-│   ├── index-[hash].js       (~264 KB gzipped)
-│   ├── DJI_0924-[hash].JPG
-│   ├── DJI_0964-[hash].JPG
-│   ├── DJI_0965-[hash].JPG
-│   └── Drone-[hash].mp4
-└── favicon.svg, icons.svg
-```
-
-### Environment Variables
-None required for current implementation. All config in source.
-
-## 🔧 Customization
-
-### Update Farm Info
-Edit constants at top of `src/App.jsx`:
-```jsx
-const WHATSAPP_NUMBERS = ['+919930123456', '+919930456789']
-const CONTACT_PERSONS = ['Mr. Foo Bar', 'Mrs. Foo Bar']
-const TREE_TYPES = [ ... ]
-const SERVICES = [ ... ]
-```
-
-### Modify Design Tokens
-Edit `src/index.css` `:root` variables for colors, spacing, fonts.
-
-### Add Sections
-1. Create component function in `App.jsx`
-2. Add styles in `App.css`
-3. Include in `App()` render order
-
-## 🐛 Known Limitations
-
-- Single-file `App.jsx` — consider splitting for team scaling
-- Large media files increase bundle size
-- Google Maps iframe uses placeholder coordinates (update `src` with actual embed URL)
-- Feedback stored in localStorage only (no backend)
-- No i18n support
-
-## 📄 License
-
-MIT License — feel free to adapt for your own farm/project.
-
-## 🤝 Credits
-
-- **Design Inspiration**: Airbnb Design System
-- **Font**: Inter by Rasmus Andersson (Google Fonts)
-- **Icons**: Custom SVGs + Unicode emojis
-- **Images**: Nimboni Farm drone photography
 
 ---
 
-**Built with ❤️ for regenerative agriculture**
+## What changed in this redesign
+
+The old site was a competent but generic React template: grey-on-white, Inter
+throughout, a stock Vite favicon, and a booking form that ended in
+`console.log()`. It described the farm without ever making you want to go there.
+
+The rebuild is built around one idea, taken straight from the farm's own
+history: **this land was bare in 2016, and it is a forest now.** That
+transformation is the single most persuasive thing about the place, so it leads
+the page instead of sitting buried in an "About" block.
+
+### Art direction
+
+- **Parchment, forest ink, clay, harvest amber.** No neutral grey — the palette
+  is soil, leaf and sun. A single low-opacity paper-grain film sits over the
+  whole page to keep the photography from feeling like a screenshot.
+- **Instrument Serif** for display against **Inter** for UI. Two voices, no
+  third. The serif ships a single weight, so headings earn their authority from
+  size and leading rather than from weight — the restraint is the point.
+  `font-synthesis: none` is set globally so the browser never fakes a bold.
+- **Photography first.** The drone imagery is the best asset the farm has, so it
+  is full-bleed, un-cropped and given room to breathe.
+
+### The identity
+
+The farm is named for the **nim** (neem), so the mark is a neem sprig rather
+than a generic leaf: one rib carrying four pairs of leaflets and a terminal
+leaflet, drawn as rotated ellipses in `NimboniMark`. Neem leaves are pinnate,
+which makes the silhouette ownable — it reads as foliage at 24px and as botany
+at 96px. The geometry is balanced to sit dead-centre in its 48×48 box
+(centre 24.00, 24.00) and is symmetric to within a pixel.
+
+The wordmark sets **Nimboni** in the display serif with **.farm** as a small
+sans suffix in leaf green — the brand's one flourish. Both live in
+`src/components/Icons.jsx`.
+
+One typographic wrinkle worth knowing: neither Instrument Serif nor Inter
+ships U+20B9 (₹) — it falls outside the Google Fonts `latin` subset, so the
+browser resolves it from a system font. Rather than leave that to chance,
+`src/components/Price.jsx` sets the rupee mark deliberately in the sans voice
+at 62% size, so it reads as a considered currency mark next to the serif
+numerals instead of a mismatch.
+
+### Structure, in the order a visitor meets it
+
+| Section | Job |
+| --- | --- |
+| **Hero** | Full-bleed drone loop. "Barren ground in 2016. / A living farm forest now." Four hard numbers underneath. |
+| **Marquee** | Credentials ticker — organic, rainwater, solar, zero waste. |
+| **The turn** | The origin story, the eight permaculture principles, and a stat band that counts up on scroll. |
+| **Two ways in** | Farm stay vs. course, priced, with a tabbed hour-by-hour schedule for each. |
+| **The food forest** | The species that are actually planted, with counts. |
+| **From above** | Mosaic gallery + lightbox (the old grid rendered nothing — it sliced a 4-item array at index 4). |
+| **Guest book** | Working feedback wall. |
+| **Plan a visit** | Booking form with a live estimate rail and a real WhatsApp handoff. |
+| **Before you come** | FAQ accordion that answers the objections that stop a booking. |
+| **Find us** | Map, directions, both WhatsApp lines. |
+
+Plus a **sticky mobile bar** so the booking CTA is never more than a thumb away,
+and a scroll-progress hairline in the header.
+
+### Conversion work
+
+- **The booking form goes somewhere.** It validates, stores the enquiry locally,
+  then opens WhatsApp with every detail pre-written for the farm to read. The
+  old form validated, logged to the console, and thanked you.
+- **Per-service rules.** Weekend-only validation now applies to the course only
+  — it used to reject weekday farm stays too, which is a third of the week's
+  potential bookings turned away.
+- **Live estimate rail** next to the form, so nobody has to do mental arithmetic.
+- **Service cards hand their choice to the form.** "Check dates" on the course
+  card scrolls to booking *with the course already selected*.
+- **Price shown early and plainly**, with what's included.
+
+### Engineering
+
+- **Media is 3 MB, not 90 MB.** The 78 MB 4K drone clip is now a 495 KB 720p
+  loop with a poster frame; the 4 MB JPEGs are WebP at 640/1280/1920 with JPEG
+  fallbacks. Originals stay in `src/assets/farm-images/` as masters and are
+  deliberately not imported, so they never reach the bundle.
+- **Video respects `prefers-reduced-motion` and Save-Data** — it never
+  auto-plays in those cases.
+- Content is split out into `src/data/site.js`; components hold no copy.
+- Scroll-reveal, count-up and nav highlighting all run off `IntersectionObserver`.
+- Keyboard-navigable lightbox, proper accordion semantics, skip link, focus
+  rings, `aria-invalid` on failed fields.
+- `node_modules/` and `.DS_Store` are no longer tracked.
+
+---
+
+## Before you go live
+
+Every value marked `TODO` in `src/data/site.js` is a placeholder inherited from
+the original build. Nothing else needs editing.
+
+1. **WhatsApp numbers and contact names** — currently `+919930123456` /
+   "Mr. Foo Bar" and `+919930456789` / "Mrs. Foo Bar".
+2. **Address** — "Survey No. 123/4, Near Green Valley … 410XXX".
+3. **Driving distances** — the FAQ and "find us" card need real times from Pune
+   and Mumbai.
+4. **Email** — `hello@nimbonifarm.example`.
+5. **Social links** — still pointing at `instagram.com`, `facebook.com`,
+   `youtube.com`.
+6. **`<link rel="canonical">` in `index.html`** — set to the real domain.
+
+Two things to decide on:
+
+- **The guest book is local-only.** Notes are saved in the visitor's browser, so
+  new visitors see an empty wall. Fabricating testimonials would have been the
+  faster-looking option and the wrong one — but an empty wall does not sell.
+  Either point this form at a real backend/review platform, or paste in genuine
+  guest feedback once you have it.
+- **Enquiries have no server.** The form hands off to WhatsApp and keeps a copy
+  in `localStorage`. That matches how the farm actually works, but it means no
+  enquiry is captured if a visitor closes the tab without sending. A form
+  endpoint (Formspree, a Netlify function, anything) would close that gap.
+
+## Layout
+
+```
+src/
+  data/site.js          all copy, prices, contacts, links
+  components/           one file per section
+  lib/hooks.js          reveal, count-up, scroll progress, body lock
+  styles/
+    tokens.css          palette, type scale, spacing, motion
+    base.css            reset, typography, buttons, primitives
+    sections.css        per-section layout
+public/media/           optimised derivatives (WebP/JPEG/MP4)
+```
+
+## Requirements
+
+- Node.js 18+
+- npm 9+
+
+## Deployment
+
+Static hosting (Netlify, Vercel, Cloudflare Pages, GitHub Pages):
+
+```bash
+npm run build     # → dist/
+# deploy the dist/ folder
+```
+
+No environment variables — all configuration lives in `src/data/site.js`.
+
+## Credits
+
+- **Type**: Instrument Serif (display) and Inter (UI), both from Google Fonts
+- **Photography**: Nimboni Farm drone photography
+- **Mark**: neem sprig, drawn for this brand
+- **Icons**: custom SVGs, drawn for this build
+
+---
+
+Built with 🌱 for regenerative agriculture.
