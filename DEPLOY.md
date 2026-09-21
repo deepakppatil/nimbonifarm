@@ -343,6 +343,41 @@ Once you have confirmed the Actions deploy works, it is worth untracking it
 (the files stay on your machine; history keeps the old copies). Say the word
 and it will be done.
 
+### Troubleshooting the deploy step
+
+If the build job goes green and the deploy job is refused, the cause is almost
+always the `github-pages` environment, not the workflow.
+
+#### `Branch "feature/0.1.1" is not allowed to deploy to github-pages due to environment protection rules`
+
+When you switch Pages to the **GitHub Actions** source, GitHub creates a
+`github-pages` environment and, by default, restricts deployments to the
+**default branch only** — in this repo `develop`. Every other branch builds
+successfully and is then refused at the last step.
+
+**Settings → Environments → `github-pages`**, then under *Deployment branches
+and tags* either:
+
+- pick **All branches**, or
+- keep *Selected branches and tags* and add `feature/1.0.0` (or the pattern
+  `feature/*`, if you want any feature branch deployable).
+
+Save, then **Actions → the failed run → Re-run failed jobs**. No new push or
+rebuild is needed.
+
+#### The deploy job sits in "Waiting" instead of failing
+
+Same screen, different rule: **Required reviewers** or **Wait timer** are set on
+the environment. Approve it, or clear the rule.
+
+#### Skipping the environment entirely
+
+If you would rather not touch environment settings, delete the `environment:`
+block from the `deploy` job in `deploy-pages.yml`. Without it the job is not
+environment-scoped, so the rule is never evaluated and the deploy goes through.
+The trade-off: you lose the live URL on the run summary and the deployment
+history in the environment view. Editing the rule is the better fix.
+
 ## 5. After launch
 
 - **Analytics.** Add a free Plausible or Cloudflare Web Analytics snippet to
