@@ -122,3 +122,29 @@ src/
     sections.css        per-section layout
 public/media/           optimised derivatives (WebP/JPEG/MP4)
 ```
+
+## Requirements
+
+- Node.js 18+
+- npm 9+
+
+## Deployment
+
+Static hosting (Netlify, Vercel, Cloudflare Pages, GitHub Pages):
+
+```bash
+npm run build     # → dist/
+# deploy the dist/ folder
+```
+
+No environment variables — all configuration lives in `src/data/site.js`.
+
+## Credits
+
+- **Type**: Fraunces and Inter, both from Google Fonts
+- **Photography**: Nimboni Farm drone photography
+- **Icons**: custom SVGs, drawn for this build
+
+---
+
+Built with 🌱 for regenerative agriculture.
