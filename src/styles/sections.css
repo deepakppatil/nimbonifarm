@@ -1593,6 +1593,12 @@
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.75fr) minmax(0, 0.75fr);
 }
 
+.booking__row--date .field__input {
+  height: 3.4rem;
+  padding-block: 0;
+  line-height: 1.2;
+}
+
 .field--sm {
   min-width: 0;
 }

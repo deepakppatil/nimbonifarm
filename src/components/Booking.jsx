@@ -276,9 +276,14 @@ export default function Booking({ intent, onIntentHandled }) {
                       value={guests}
                       min="1"
                       max="20"
-                      onChange={(e) => setGuests(Math.max(1, Math.min(20, Number(e.target.value) || 1)))}
+                      onChange={(e) => setGuests(Math.max(1, Math.min(6, Number(e.target.value) || 1)))}
                       aria-invalid={errors.guests ? 'true' : undefined}
                     />
+                    <span className="field__hint" id="b-guests-hint">
+                      {option.guests > 6
+                        ? 'Max 6, larger groups can enquire.'
+                        : 'Max 6 Guests for a stay.'}
+                    </span>
                     {errors.guests && (
                       <span className="field__error" role="alert">
                         {errors.guests}
@@ -298,7 +303,7 @@ export default function Booking({ intent, onIntentHandled }) {
                           value={nights}
                           onChange={(e) => setNights(Number(e.target.value))}
                         >
-                          {[1, 2, 3, 4, 5].map((n) => (
+                          {[1, 2].map((n) => (
                             <option key={n} value={n}>
                               {n}
                             </option>
@@ -306,6 +311,16 @@ export default function Booking({ intent, onIntentHandled }) {
                         </select>
                         <Icon name="chevronRight" size={18} className="select__chevron" />
                       </div>
+                      <span className="field__hint" id="b-nights-hint">
+                        {option.hasNights && nights > 2
+                          ? 'Max 2 Nights.' 
+                          : 'Min 1 night.'}
+                      </span>
+                      {errors.nights && (
+                      <span className="field__error" role="alert">
+                        {errors.nights}
+                      </span>
+                    )}
                     </label>
                   )}
                 </div>
