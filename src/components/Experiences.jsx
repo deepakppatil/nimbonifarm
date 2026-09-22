@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import Reveal from './Reveal.jsx'
 import { Icon } from './Icons.jsx'
-import Price from './Price.jsx'
+// TODO: Restore the Price import when public pricing is ready.
+// import Price from './Price.jsx'
 import { EXPERIENCES, GROUP_ENQUIRY } from '../data/site.js'
 
 export default function Experiences({ onChoose }) {
@@ -42,7 +43,8 @@ export default function Experiences({ onChoose }) {
 
                 <div className="exp-card__price">
                   <span className="exp-card__amount">
-                    <Price value={exp.price} />
+                    {/* TODO: Restore <Price value={exp.price} /> when public pricing is ready. */}
+                    XXXX
                   </span>
                   <span className="exp-card__unit">{exp.priceUnit}</span>
                 </div>
