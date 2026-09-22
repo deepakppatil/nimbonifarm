@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Reveal from './Reveal.jsx'
 import { Icon } from './Icons.jsx'
+import { TESTIMONIALS } from '../data/site.js'
 
 const KEY = 'nimboni-feedback-v2'
 const STARS = [1, 2, 3, 4, 5]
@@ -32,7 +33,7 @@ export default function Voices() {
   const [saving, setSaving] = useState(false)
 
   // Read after mount so localStorage never blocks the first paint.
-  useEffect(() => setList(read()), [])
+  useEffect(() => setList([...TESTIMONIALS, ...read()]), [])
 
   const submit = (e) => {
     e.preventDefault()
@@ -62,13 +63,13 @@ export default function Voices() {
     : null
 
   return (
-    <section id="voices" className="section section--paper-2 voices" aria-labelledby="voices-title">
+    <section id="testimonials" className="section section--paper-2 voices" aria-labelledby="voices-title">
       <div className="container">
         <div className="voices__head">
           <Reveal>
-            <p className="eyebrow">Guest book</p>
+            <p className="eyebrow">Testimonials</p>
             <h2 id="voices-title" className="sec-head__title">
-              What people say on the drive home.
+              What people say after the farm.
             </h2>
           </Reveal>
 
@@ -89,7 +90,7 @@ export default function Voices() {
             )}
             <button type="button" className="btn btn--ink" onClick={() => setOpen((v) => !v)}>
               <Icon name="quote" size={17} />
-              {open ? 'Close the book' : 'Leave a note'}
+              {open ? 'Close the form' : 'Share your experience'}
             </button>
           </Reveal>
         </div>
@@ -166,13 +167,13 @@ export default function Voices() {
             <span className="voices__empty-mark" aria-hidden="true">
               <Icon name="leaf" size={26} />
             </span>
-            <h3>Be the first to write in it.</h3>
+            <h3>Be the next voice in it.</h3>
             <p>
-              We would rather start this wall empty and honest than fill it with words nobody
-              said. If you have stayed with us, the first note is yours.
+              If you have stayed or learnt with us, tell future guests what surprised you, what
+              you learnt and what you would happily do all over again.
             </p>
             <button type="button" className="btn btn--leaf" onClick={() => setOpen(true)}>
-              Write the first note
+              Share your experience
             </button>
           </Reveal>
         ) : (
@@ -213,8 +214,8 @@ export default function Voices() {
         )}
 
         <p className="voices__disclaimer">
-          Notes are saved on this device for now. To publish them for every visitor, point this
-          form at a real backend or a review platform — ask your developer to wire it up.
+          Notes are saved on this device for now. To publish them for every visitor, connect this
+          form to a real backend or review platform.
         </p>
       </div>
     </section>

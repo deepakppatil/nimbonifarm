@@ -229,6 +229,41 @@ export const GROUP_ENQUIRY = {
 }
 
 /* ------------------------------------------------------------------ */
+/* People and testimonials                                             */
+/* ------------------------------------------------------------------ */
+
+export const TEAM = [
+  {
+    name: 'The farm team',
+    role: 'Land, food and welcome',
+    note: 'The people who keep the food forest growing, the kitchen moving and the welcome warm.',
+    initials: 'FT',
+  },
+  {
+    name: 'Your field guide',
+    role: 'Farm walks and learning',
+    note: 'Ask a question about soil, water or trees and someone will probably lead you outside to show you.',
+    initials: 'FG',
+  },
+  {
+    name: 'The living landscape',
+    role: 'Resident host',
+    note: 'Birds, pollinators, shade trees and the occasional very confident chicken are part of the team too.',
+    initials: 'LL',
+  },
+]
+
+export const TESTIMONIALS = [
+  {
+    id: 'first-visit',
+    name: 'Your story could be here',
+    rating: 5,
+    message: 'We are opening this space for the first guests and learners who want to share what the farm felt like in their own words.',
+    date: '2026-01-01T00:00:00.000Z',
+  },
+]
+
+/* ------------------------------------------------------------------ */
 /* Food forest                                                         */
 /* ------------------------------------------------------------------ */
 
