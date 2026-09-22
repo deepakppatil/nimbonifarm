@@ -22,13 +22,13 @@ function StatsBand() {
   const [ref, visible] = useReveal({ threshold: 0.4 })
   return (
     <div ref={ref} className={`story__stats reveal ${visible ? 'is-visible' : ''}`}>
-      <Stat value={4} label="acres of land" active={visible} />
+      <Stat value={160000} suffix="+" label="Square Feet of Land" active={visible} />
       <Stat value={700} suffix="+" label="trees standing" active={visible} />
       <Stat value={15} suffix="+" label="species recorded" active={visible} />
       <Stat value={0} label="chemicals used" active={visible} />
-      <p className="story__stats-note">
+      {/* <p className="story__stats-note">
         Since {FARM.established}. Counted by hand, which is the only honest way to count them.
-      </p>
+      </p> */}
     </div>
   )
 }

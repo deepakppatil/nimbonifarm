@@ -58,12 +58,12 @@ export const HERO = {
   lineOne: 'Barren ground in 2016.',
   lineTwo: 'A living farm forest now.',
   body:
-    'Four acres of regenerated land — 700+ trees, no chemicals, and one stubborn idea: ' +
+    '160000+ Square Feet of Regenerated farmland — 700+ trees, no chemicals, and one stubborn idea: ' +
     'if you stop fighting the land, it feeds you. Come sleep in it, or come learn how we did it.',
   primaryCta: { label: 'Plan your weekend', target: 'booking' },
   secondaryCta: { label: 'See the farm from above', target: 'gallery' },
   stats: [
-    { value: 4, suffix: '', label: 'acres', sub: 'of regenerated land' },
+    { value: 160000, suffix: '+', label: 'Square Feet', sub: 'of Regenerated Land' },
     { value: 700, suffix: '+', label: 'trees', sub: 'across 15+ species' },
     { value: 10, suffix: '+', label: 'species', sub: 'in the food forest' },
     { value: 0, suffix: '', label: 'chemicals', sub: 'since day one' },
@@ -110,7 +110,7 @@ export const MEDIA = [
     id: 'drone',
     type: 'video',
     alt: 'Six-second drone flight over Nimboni Farm',
-    caption: 'Six seconds over four acres.',
+    caption: 'Six seconds over green forest spread overs acres.',
   },
 ]
 
@@ -148,7 +148,7 @@ export const STORY = {
     { icon: '🎨', name: 'Design from Patterns' },
     { icon: '🤝', name: "Integrate, Don't Segregate" },
   ],
-  imageNote: 'Survey No. 123/4 — the same slope, nine growing seasons on.',
+  imageNote: 'Since 2016. Counted by hand, which is the only honest way to count them — the same slope, nine growing seasons on.',
 }
 
 /* ------------------------------------------------------------------ */
@@ -268,7 +268,7 @@ export const TESTIMONIALS = [
 /* ------------------------------------------------------------------ */
 
 export const SPECIES = [
-  { name: 'Lime', count: 450, note: 'Organic cultivation across two acres', icon: '🍋', tone: '#8FBC5A' },
+  { name: 'Lime', count: 450, note: 'Organic cultivation', icon: '🍋', tone: '#8FBC5A' },
   { name: 'Mahogany', count: 100, note: 'Premium timber, 15+ years established', icon: '🌳', tone: '#3F6B34' },
   { name: 'Indian Lilac (Nim)', count: 10, note: 'The native guardian the farm is named for', icon: '🌿', tone: '#5E8C3F' },
   { name: 'Guava', count: 2, note: 'White and pink-fleshed varieties', icon: '🍐', tone: '#A7C46A' },

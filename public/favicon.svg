@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
   <defs>
-    <linearGradient id="rib" x1="24" y1="2" x2="24" y2="46" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#DCEBC4"/>
-      <stop offset=".5" stop-color="#9CC47A"/>
-      <stop offset="1" stop-color="#5E8C55"/>
+    <radialGradient id="lime" cx="32%" cy="25%" r="78%">
+      <stop offset="0" stop-color="#E4EFD2"/>
+      <stop offset=".45" stop-color="#A7C888"/>
+      <stop offset="1" stop-color="#4C7A34"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#B9CF3F"/>
+      <stop offset="1" stop-color="#1B3123"/>
     </linearGradient>
   </defs>
   <rect width="48" height="48" rx="13" fill="#14251A"/>
-  <g fill="url(#rib)">
-    <ellipse cx="15.6" cy="34" rx="8.4" ry="2.6" transform="rotate(26 15.6 34)"/>
-    <ellipse cx="32.4" cy="34" rx="8.4" ry="2.6" transform="rotate(-26 32.4 34)"/>
-    <ellipse cx="17" cy="26.5" rx="7" ry="2.2" transform="rotate(26 17 26.5)"/>
-    <ellipse cx="31" cy="26.5" rx="7" ry="2.2" transform="rotate(-26 31 26.5)"/>
-    <ellipse cx="18.5" cy="20" rx="5.5" ry="1.8" transform="rotate(26 18.5 20)"/>
-    <ellipse cx="29.5" cy="20" rx="5.5" ry="1.8" transform="rotate(-26 29.5 20)"/>
-    <ellipse cx="20" cy="14.5" rx="4" ry="1.4" transform="rotate(26 20 14.5)"/>
-    <ellipse cx="28" cy="14.5" rx="4" ry="1.4" transform="rotate(-26 28 14.5)"/>
-    <ellipse cx="24" cy="9.2" rx="2.4" ry="3.8"/>
-  </g>
-  <path d="M24 42.5C23.6 33 24.4 24 24 10.5" stroke="url(#rib)" stroke-width="1.9" stroke-linecap="round" fill="none"/>
+  <ellipse cx="19" cy="29" rx="11.5" ry="10.8" fill="url(#lime)"/>
+  <path d="M11 34.5c4.5 3.1 10.5 4.1 16.2 1.2" stroke="#1B3123" stroke-width="1.1" stroke-linecap="round" opacity=".7"/>
+  <ellipse cx="15.5" cy="24.2" rx="2.8" ry="1.7" transform="rotate(-28 15.5 24.2)" fill="#E4EFD2" opacity=".7"/>
+  <path d="M21 21.8C17.7 13.2 11.1 10.1 6.8 12.2c1.1 6.2 5.9 10.6 14.8 11.4" fill="url(#leaf)" opacity=".78"/>
+  <path d="M20 22c-4.5-4.1-8.3-6.8-12-8.7" stroke="#E4EFD2" stroke-width=".9" stroke-linecap="round"/>
+  <path d="M21 20.5C26 10.2 35.8 7.7 42 9.2c-.7 8.9-6.1 15.6-17.2 17.2" fill="url(#leaf)"/>
+  <path d="M22 24.8c6-5.3 11.2-9 17.1-12.2" stroke="#E4EFD2" stroke-width="1.1" stroke-linecap="round"/>
+  <circle cx="18.5" cy="17.4" r="1.2" fill="#4C7A34"/>
 </svg>
