@@ -230,7 +230,8 @@ export default function Booking({ intent, onIntentHandled }) {
                       {OPTIONS.map((o) => (
                         <option key={o.id} value={o.id}>
                           {o.label}
-                          {o.price != null ? ` — from ${inr.format(o.price)}` : ' — on request'}
+                          {/* TODO: Restore `o.price != null ? \` — from ${inr.format(o.price)}\` : ' — on request'` when public pricing is ready. */}
+                          {o.price != null ? ' — XXXX' : ' — on request'}
                         </option>
                       ))}
                     </select>
