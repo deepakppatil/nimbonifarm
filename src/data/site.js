@@ -54,7 +54,7 @@ export const whatsappHref = (message, index = 0) =>
 /* ------------------------------------------------------------------ */
 
 export const HERO = {
-  eyebrow: 'Nimboni Farm · Maharashtra',
+  eyebrow: 'Nimboni Farm · Maharashtra · Established 2016',
   lineOne: 'Barren ground in 2016.',
   lineTwo: 'A living farm forest now.',
   body:

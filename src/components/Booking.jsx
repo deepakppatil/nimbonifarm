@@ -171,6 +171,11 @@ export default function Booking({ intent, onIntentHandled }) {
           </Reveal>
         </div>
 
+        <p className="booking__status">
+          <strong>Bookings opening soon.</strong> Send us an enquiry and we will let you know when
+          dates are available.
+        </p>
+
         <div className="booking__layout">
           <Reveal className="booking__form-wrap">
             {sent ? (
@@ -411,7 +416,7 @@ export default function Booking({ intent, onIntentHandled }) {
 
                 <button type="submit" className="btn btn--primary btn--lg btn--block booking__submit">
                   <WhatsAppGlyph size={19} />
-                  Send it to the farm on WhatsApp
+                  Send an enquiry on WhatsApp
                 </button>
 
                 <p className="booking__smallprint">
