@@ -162,10 +162,12 @@ export const EXPERIENCES = [
     title: 'Farm Stay',
     summary:
       'Sleep inside the food forest. Wake to birdsong, eat what was picked that morning, ' +
-      'and let the day be arranged by the sun for once.',
+      'and let the day be arranged by the sun for once. A weekend of slow mornings, muddy shoes and a slightly rearranged ' +
+      'idea of what a piece of land can do, No Wi-Fi, no TV, no distractions — just the farm and its rhythms!',
     price: 4000,
     priceUnit: 'per person / night',
     priceNote: 'Includes all three meals, farm tours and evening bonfire in season.',
+    schedule: 'All Days · Check-in: 12:00, Check-out: 11:00',
     accent: 'leaf',
     icon: '🏡',
     features: [
@@ -174,7 +176,8 @@ export const EXPERIENCES = [
       'Guided farm tour & nature walk',
       'Bird watching and stargazing',
       'Bonfire evenings (in season)',
-      'Pick-up and drop from the nearest station',
+      'Amenities: Luxury Bed, towels, toiletries in common areas, hammocks, outdoor seating, fire pit, open-air dining, and more',
+      'Endulge in the books from our library',
     ],
     requiresWeekend: false,
     itinerary: [
@@ -188,7 +191,7 @@ export const EXPERIENCES = [
   },
   {
     id: 'permaculture-course',
-    kicker: 'Learn',
+    kicker: 'Experience & Learn',
     title: 'Permaculture Design Course',
     summary:
       'A hands-on weekend course, taught standing up in the field. The first day covers the ' +
