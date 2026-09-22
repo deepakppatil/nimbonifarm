@@ -274,8 +274,8 @@ export const SPECIES = [
   { name: 'Guava', count: 2, note: 'White and pink-fleshed varieties', icon: '🍐', tone: '#A7C46A' },
   { name: 'Chikoo', count: 2, note: 'Sweet sapodilla, fruiting in summer', icon: '🍑', tone: '#C2703C' },
   { name: 'Banana', count: 2, note: 'Multiple harvest cycles a year', icon: '🍌', tone: '#D9A62E' },
-  { name: 'Amla', count: 2, note: 'Multiple harvest cycles a year', icon: '🌿', tone: '#D9A62E' },
-  { name: 'Many more local species', cnote: 'Multiple harvest cycles a year', icon: '🌿', tone: '#D9A62E' },
+  { name: 'Amla', count: 2, note: 'Diverse medicinal properties', icon: '🌿', tone: '#D9A62E' },
+  { name: 'Many more local species', note: 'Other species', icon: '🌿', tone: '#D9A62E' },
 
 ]
 
