@@ -54,16 +54,16 @@ export const whatsappHref = (message, index = 0) =>
 /* ------------------------------------------------------------------ */
 
 export const HERO = {
-  eyebrow: 'Nimboni Farm · Maharashtra',
+  eyebrow: 'Nimboni Farm · Maharashtra · Established 2016',
   lineOne: 'Barren ground in 2016.',
   lineTwo: 'A living farm forest now.',
   body:
-    'Four acres of regenerated land — 700+ trees, no chemicals, and one stubborn idea: ' +
+    '160000+ Square Feet of Regenerated farmland — 700+ trees, no chemicals, and one stubborn idea: ' +
     'if you stop fighting the land, it feeds you. Come sleep in it, or come learn how we did it.',
   primaryCta: { label: 'Plan your weekend', target: 'booking' },
   secondaryCta: { label: 'See the farm from above', target: 'gallery' },
   stats: [
-    { value: 4, suffix: '', label: 'acres', sub: 'of regenerated land' },
+    { value: 160000, suffix: '+', label: 'Square Feet', sub: 'of Regenerated Land' },
     { value: 700, suffix: '+', label: 'trees', sub: 'across 15+ species' },
     { value: 10, suffix: '+', label: 'species', sub: 'in the food forest' },
     { value: 0, suffix: '', label: 'chemicals', sub: 'since day one' },
@@ -110,7 +110,7 @@ export const MEDIA = [
     id: 'drone',
     type: 'video',
     alt: 'Six-second drone flight over Nimboni Farm',
-    caption: 'Six seconds over four acres.',
+    caption: 'Six seconds over green forest spread overs acres.',
   },
 ]
 
@@ -139,16 +139,16 @@ export const STORY = {
       'long enough that the land started doing it by itself.',
   ],
   principles: [
-    { icon: '👁️', name: 'Observe & Interact' },
-    { icon: '💧', name: 'Catch & Store Energy' },
-    { icon: '🌿', name: 'Obtain a Yield' },
-    { icon: '🔄', name: 'Apply Self-Regulation' },
-    { icon: '🌍', name: 'Use & Value Renewables' },
-    { icon: '♻️', name: 'Produce No Waste' },
-    { icon: '🎨', name: 'Design from Patterns' },
-    { icon: '🤝', name: "Integrate, Don't Segregate" },
+    { icon: '👁️', name: 'Observe & Interact', note: 'Read the land before you change it.' },
+    { icon: '💧', name: 'Catch & Store Energy', note: 'Keep rain, shade and soil where they matter.' },
+    { icon: '🌿', name: 'Obtain a Yield', note: 'Let useful abundance follow good care.' },
+    { icon: '🔄', name: 'Apply Self-Regulation', note: 'Notice what works, then adjust.' },
+    { icon: '🌍', name: 'Use & Value Renewables', note: 'Build with the sun, water and seasons.' },
+    { icon: '♻️', name: 'Produce No Waste', note: 'One system’s leftovers feed another.' },
+    { icon: '🎨', name: 'Design from Patterns', note: 'The big picture teaches the small move.' },
+    { icon: '🤝', name: "Integrate, Don't Segregate", note: 'Healthy edges make resilient places.' },
   ],
-  imageNote: 'Survey No. 123/4 — the same slope, nine growing seasons on.',
+  imageNote: 'Since 2016. Counted by hand, which is the only honest way to count them — the same slope, nine growing seasons on.',
 }
 
 /* ------------------------------------------------------------------ */
@@ -162,10 +162,12 @@ export const EXPERIENCES = [
     title: 'Farm Stay',
     summary:
       'Sleep inside the food forest. Wake to birdsong, eat what was picked that morning, ' +
-      'and let the day be arranged by the sun for once.',
+      'and let the day be arranged by the sun for once. A weekend of slow mornings, muddy shoes and a slightly rearranged ' +
+      'idea of what a piece of land can do, No Wi-Fi, no TV, no distractions — just the farm and its rhythms!',
     price: 4000,
     priceUnit: 'per person / night',
     priceNote: 'Includes all three meals, farm tours and evening bonfire in season.',
+    schedule: 'All Days · Check-in: 12:00, Check-out: 11:00',
     accent: 'leaf',
     icon: '🏡',
     features: [
@@ -174,7 +176,8 @@ export const EXPERIENCES = [
       'Guided farm tour & nature walk',
       'Bird watching and stargazing',
       'Bonfire evenings (in season)',
-      'Pick-up and drop from the nearest station',
+      'Amenities: Luxury Bed, towels, toiletries in common areas, hammocks, outdoor seating, fire pit, open-air dining, and more',
+      'Endulge in the books from our library',
     ],
     requiresWeekend: false,
     itinerary: [
@@ -188,7 +191,7 @@ export const EXPERIENCES = [
   },
   {
     id: 'permaculture-course',
-    kicker: 'Learn',
+    kicker: 'Experience & Learn',
     title: 'Permaculture Design Course',
     summary:
       'A hands-on weekend course, taught standing up in the field. The first day covers the ' +
@@ -226,16 +229,54 @@ export const GROUP_ENQUIRY = {
 }
 
 /* ------------------------------------------------------------------ */
+/* People and testimonials                                             */
+/* ------------------------------------------------------------------ */
+
+export const TEAM = [
+  {
+    name: 'The farm team',
+    role: 'Land, food and welcome',
+    note: 'The people who keep the food forest growing, the kitchen moving and the welcome warm.',
+    initials: 'FT',
+  },
+  {
+    name: 'Your field guide',
+    role: 'Farm walks and learning',
+    note: 'Ask a question about soil, water or trees and someone will probably lead you outside to show you.',
+    initials: 'FG',
+  },
+  {
+    name: 'The living landscape',
+    role: 'Resident host',
+    note: 'Birds, pollinators, shade trees and the occasional very confident chicken are part of the team too.',
+    initials: 'LL',
+  },
+]
+
+export const TESTIMONIALS = [
+  {
+    id: 'first-visit',
+    name: 'Your story could be here',
+    rating: 5,
+    message: 'We are opening this space for the first guests and learners who want to share what the farm felt like in their own words.',
+    date: '2026-01-01T00:00:00.000Z',
+  },
+]
+
+/* ------------------------------------------------------------------ */
 /* Food forest                                                         */
 /* ------------------------------------------------------------------ */
 
 export const SPECIES = [
-  { name: 'Lime', count: 450, note: 'Organic cultivation across two acres', icon: '🍋', tone: '#8FBC5A' },
-  { name: 'Mahogany', count: 100, note: 'Premium timber, 15+ years established', icon: '🌳', tone: '#3F6B34' },
+  { name: 'Lime', count: 500, note: 'Organic cultivation', icon: '🍋', tone: '#8FBC5A' },
+  { name: 'Mahogany', count: 170, note: 'Premium timber, 15+ years established', icon: '🌳', tone: '#3F6B34' },
   { name: 'Indian Lilac (Nim)', count: 10, note: 'The native guardian the farm is named for', icon: '🌿', tone: '#5E8C3F' },
   { name: 'Guava', count: 2, note: 'White and pink-fleshed varieties', icon: '🍐', tone: '#A7C46A' },
   { name: 'Chikoo', count: 2, note: 'Sweet sapodilla, fruiting in summer', icon: '🍑', tone: '#C2703C' },
   { name: 'Banana', count: 2, note: 'Multiple harvest cycles a year', icon: '🍌', tone: '#D9A62E' },
+  { name: 'Amla', count: 2, note: 'Diverse medicinal properties', icon: '🌿', tone: '#D9A62E' },
+  { name: 'Many more local species', note: 'Other species', icon: '🌿', tone: '#D9A62E' },
+
 ]
 
 export const SPECIES_NOTE =

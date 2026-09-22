@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Nimboni Farm whole lime logo concept</title>
+  <desc id="desc">A whole lime with a leaf and stem, paired with the existing Nimboni Farm wordmark.</desc>
+  <defs>
+    <radialGradient id="limeLight" cx="32%" cy="25%" r="78%">
+      <stop offset="0" stop-color="#f2f6bd"/>
+      <stop offset=".35" stop-color="#c9df70"/>
+      <stop offset="1" stop-color="#6f9f3d"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b5d776"/>
+      <stop offset="1" stop-color="#2b5d32"/>
+    </linearGradient>
+    <g id="whole-lime-light">
+      <ellipse cx="43" cy="51" rx="29" ry="27" fill="url(#limeLight)"/>
+      <path d="M22 70c10 7 25 10 39 3" fill="none" stroke="#4c7a34" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+      <ellipse cx="32" cy="38" rx="7" ry="4" transform="rotate(-28 32 38)" fill="#f8fbd4" opacity=".58"/>
+      <path d="M45 29C51 13 66 6 82 10c-1 16-10 29-31 34" fill="url(#leaf)"/>
+      <path d="M48 39c11-9 21-17 32-24" fill="none" stroke="#e3f5a5" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="42" cy="23" r="3" fill="#9fbe45"/>
+    </g>
+    <g id="whole-lime-dark">
+      <ellipse cx="43" cy="51" rx="29" ry="27" fill="url(#limeLight)"/>
+      <path d="M22 70c10 7 25 10 39 3" fill="none" stroke="#315d32" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+      <ellipse cx="32" cy="38" rx="7" ry="4" transform="rotate(-28 32 38)" fill="#fffedb" opacity=".62"/>
+      <path d="M45 29C51 13 66 6 82 10c-1 16-10 29-31 34" fill="url(#leaf)"/>
+      <path d="M48 39c11-9 21-17 32-24" fill="none" stroke="#315d32" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="42" cy="23" r="3" fill="#6d9e46"/>
+    </g>
+  </defs>
+  <rect width="1200" height="560" fill="#f8f3e9"/>
+  <rect x="38" y="38" width="1124" height="205" rx="20" fill="#14251a"/>
+  <rect x="38" y="273" width="1124" height="249" rx="20" fill="#fffdf8" stroke="#d8cdbb"/>
+
+  <text x="78" y="82" fill="#a8c48a" font-family="Inter, sans-serif" font-size="14" letter-spacing="3">CONCEPT 03 / WHOLE LIME</text>
+  <g transform="translate(91 103) scale(.78)"><use href="#whole-lime-light"/></g>
+  <text x="180" y="168" fill="#f8f3e9" font-family="Georgia, serif" font-size="48" letter-spacing="-1.5">Nimboni</text>
+  <text x="395" y="168" fill="#b9cf3f" font-family="Inter, sans-serif" font-size="20" font-weight="600">.farm</text>
+  <text x="180" y="195" fill="#a8c48a" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5">LIME • LAND • LEARNING</text>
+
+  <text x="78" y="317" fill="#5c7566" font-family="Inter, sans-serif" font-size="14" letter-spacing="3">PAPER HEADER / SAME WORDMARK</text>
+  <g transform="translate(91 343) scale(.78)"><use href="#whole-lime-dark"/></g>
+  <text x="180" y="411" fill="#14251a" font-family="Georgia, serif" font-size="48" letter-spacing="-1.5">Nimboni</text>
+  <text x="395" y="411" fill="#4c7a34" font-family="Inter, sans-serif" font-size="20" font-weight="600">.farm</text>
+  <text x="180" y="438" fill="#5c7566" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5">LIME • LAND • LEARNING</text>
+
+  <g transform="translate(775 100)">
+    <text x="0" y="0" fill="#a8c48a" font-family="Inter, sans-serif" font-size="12" letter-spacing="2">NAVBAR SCALE</text>
+    <rect x="0" y="22" width="315" height="67" rx="34" fill="#0f1d14" stroke="#6d9e46"/>
+    <g transform="translate(15 28) scale(.4)"><use href="#whole-lime-light"/></g>
+    <text x="78" y="65" fill="#f8f3e9" font-family="Georgia, serif" font-size="25">Nimboni</text>
+    <text x="190" y="65" fill="#b9cf3f" font-family="Inter, sans-serif" font-size="12" font-weight="600">.farm</text>
+  </g>
+  <text x="775" y="478" fill="#5c7566" font-family="Inter, sans-serif" font-size="12">Preview only • production logo unchanged</text>
+</svg>

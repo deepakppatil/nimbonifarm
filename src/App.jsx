@@ -6,6 +6,7 @@ import Story from './components/Story.jsx'
 import Experiences from './components/Experiences.jsx'
 import Forest from './components/Forest.jsx'
 import Gallery from './components/Gallery.jsx'
+import Team from './components/Team.jsx'
 import Voices from './components/Voices.jsx'
 import Booking from './components/Booking.jsx'
 import Faq from './components/Faq.jsx'
@@ -32,6 +33,7 @@ export default function App() {
         <Experiences onChoose={choose} />
         <Forest />
         <Gallery />
+        <Team />
         <Voices />
         <Booking intent={intent} onIntentHandled={clearIntent} />
         <Visit />

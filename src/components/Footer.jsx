@@ -14,7 +14,7 @@ export default function Footer() {
             <Logo size="xl" tone="light" className="foot__word" />
             <p className="foot__tagline">{FARM.tagline}</p>
             <p className="foot__meta">
-              {FARM.location} · established {FARM.established} · four acres of it
+              Established {FARM.established} · 1,60,000+ Sq.Feet of Regenerated Land
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export default function Footer() {
             © {year} {FARM.name}. Grown, not built.
           </p>
           <p className="foot__credit">
-            Four acres of regenerated land in Maharashtra — no chemicals, since {FARM.established}.
+            100000+ Square Feet of Regenerated farmland in Maharashtra — no chemicals, since {FARM.established}.
           </p>
         </div>
       </div>
