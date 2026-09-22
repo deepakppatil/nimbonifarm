@@ -146,22 +146,6 @@ export const SOCIAL_GLYPHS = {
 /* Brand                                                               */
 /* ------------------------------------------------------------------ */
 
-/**
- * The farm is named for the nim (neem). A neem leaf is pinnate — one rib
- * carrying paired leaflets — so the mark is a sprig rather than a generic
- * leaf shape. It reads as foliage at 16px and as botany at 128px.
- */
-const LEAFLETS = [
-  { y: 34, rx: 8.4, ry: 2.6 },
-  { y: 26.5, rx: 7, ry: 2.2 },
-  { y: 20, rx: 5.5, ry: 1.8 },
-  { y: 14.5, rx: 4, ry: 1.4 },
-]
-
-const TERMINAL = { cx: 24, cy: 9.2, rx: 2.4, ry: 3.8 }
-
-const TILT = 26
-
 export function NimboniMark({ size = 32, className = '', tone = 'brand', badge = false }) {
   const gid = `nim-${useId().replace(/[^a-zA-Z0-9-]/g, '')}`
   const [top, mid, bottom] =
@@ -183,26 +167,36 @@ export function NimboniMark({ size = 32, className = '', tone = 'brand', badge =
           <stop offset=".5" stopColor={mid} />
           <stop offset="1" stopColor={bottom} />
         </linearGradient>
+        <radialGradient id={`${gid}-lime`} cx="32%" cy="25%" r="78%">
+          <stop offset="0" stopColor={top} />
+          <stop offset=".45" stopColor={mid} />
+          <stop offset="1" stopColor={bottom} />
+        </radialGradient>
       </defs>
 
-      {badge && <rect width="48" height="48" rx="14" fill={tone === 'light' ? '#14251A' : '#14251A'} />}
+      {badge && <rect width="48" height="48" rx="14" fill="#14251A" />}
 
-      <g fill={`url(#${gid}-rib)`}>
-        {LEAFLETS.map(({ y, rx, ry }) => (
-          <g key={y}>
-            <ellipse cx={24 - rx} cy={y} rx={rx} ry={ry} transform={`rotate(${TILT} ${24 - rx} ${y})`} />
-            <ellipse cx={24 + rx} cy={y} rx={rx} ry={ry} transform={`rotate(${-TILT} ${24 + rx} ${y})`} />
-          </g>
-        ))}
-        <ellipse cx={TERMINAL.cx} cy={TERMINAL.cy} rx={TERMINAL.rx} ry={TERMINAL.ry} />
-      </g>
-
+      <ellipse cx="20" cy="29" rx="11.5" ry="10.8" fill={`url(#${gid}-lime)`} />
       <path
-        d="M24 42.5C23.6 33 24.4 24 24 10.5"
-        stroke={`url(#${gid}-rib)`}
-        strokeWidth="1.9"
+        d="M11.5 34.5c4.2 3.1 10.5 4.1 16.1 1.2"
+        stroke={bottom}
+        strokeWidth="1.1"
         strokeLinecap="round"
+        opacity="0.7"
       />
+      <ellipse cx="16.5" cy="24.2" rx="2.8" ry="1.7" transform="rotate(-28 16.5 24.2)" fill={top} opacity="0.7" />
+      <path
+        d="M22 21.8C18.7 13.2 12.1 10.1 7.8 12.2c1.1 6.2 5.9 10.6 14.8 11.4"
+        fill={`url(#${gid}-rib)`}
+        opacity="0.78"
+      />
+      <path d="M21 22c-4.5-4.1-8.3-6.8-12-8.7" stroke={top} strokeWidth="0.9" strokeLinecap="round" />
+      <path
+        d="M22 20.5C27 10.2 36.8 7.7 43 9.2c-0.7 8.9-6.1 15.6-17.2 17.2"
+        fill={`url(#${gid}-rib)`}
+      />
+      <path d="M23 24.8c6-5.3 11.2-9 17.1-12.2" stroke={top} strokeWidth="1.1" strokeLinecap="round" />
+      <circle cx="19.5" cy="17.4" r="1.2" fill={bottom} />
     </svg>
   )
 }

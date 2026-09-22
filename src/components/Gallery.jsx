@@ -20,7 +20,7 @@ export default function Gallery() {
           <Reveal>
             <p className="eyebrow">From above</p>
             <h2 id="gal-title" className="sec-head__title">
-              Four acres, six seconds, one flight.
+              160000+ Square Feet, six seconds, one flight.
             </h2>
           </Reveal>
           <Reveal delay={100}>
