@@ -32,7 +32,7 @@ export default function Header() {
           }}
           aria-label={`${FARM.name} — back to top`}
         >
-          <Logo size="md" className="hdr__mark" />
+          <Logo size="md" tone={scrolled ? 'dark' : 'light'} className="hdr__mark" />
         </a>
 
         <nav className={`hdr__nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main">

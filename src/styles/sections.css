@@ -104,6 +104,21 @@
   background: rgba(20, 37, 26, 0.05);
 }
 
+@media (min-width: 941px) {
+  .hdr:not(.is-scrolled) .hdr__link {
+    color: var(--leaf-soft);
+  }
+
+  .hdr:not(.is-scrolled) .hdr__link:hover,
+  .hdr:not(.is-scrolled) .hdr__link.is-active {
+    color: var(--paper);
+  }
+
+  .hdr:not(.is-scrolled) .hdr__link.is-active {
+    background: rgba(248, 243, 233, 0.12);
+  }
+}
+
 .hdr__link.is-active::after {
   transform: translate(-50%, 0) scale(1);
 }
