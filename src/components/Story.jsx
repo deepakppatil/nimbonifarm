@@ -1,75 +1,43 @@
 import Reveal from './Reveal.jsx'
 import { Icon } from './Icons.jsx'
-import { STORY, FARM } from '../data/site.js'
-import { useCountUp, useReveal } from '../lib/hooks.js'
+import { STORY } from '../data/site.js'
 import { Picture } from './Media.jsx'
-
-function Stat({ value, suffix, label, active }) {
-  const n = useCountUp(value, { active })
-  return (
-    <div className="stat">
-      <span className="stat__value">
-        {n}
-        {suffix}
-      </span>
-      <span className="stat__label">{label}</span>
-    </div>
-  )
-}
-
-/** Numbers only start counting once the band scrolls into view. */
-function StatsBand() {
-  const [ref, visible] = useReveal({ threshold: 0.4 })
-  return (
-    <div ref={ref} className={`story__stats reveal ${visible ? 'is-visible' : ''}`}>
-      <Stat value={160000} suffix="+" label="Square Feet of Land" active={visible} />
-      <Stat value={700} suffix="+" label="trees standing" active={visible} />
-      <Stat value={15} suffix="+" label="species recorded" active={visible} />
-      <Stat value={0} label="chemicals used" active={visible} />
-      {/* <p className="story__stats-note">
-        Since {FARM.established}. Counted by hand, which is the only honest way to count them.
-      </p> */}
-    </div>
-  )
-}
 
 export default function Story() {
   return (
     <section id="story" className="section story" aria-labelledby="story-title">
       <div className="container">
-        <div className="story__grid">
-          <div className="story__aside">
-            <Reveal>
-              <p className="eyebrow">{STORY.eyebrow}</p>
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 id="story-title" className="story__title">
-                We did not plant a farm.
-                <br />
-                <em>We stopped undoing one.</em>
-              </h2>
-            </Reveal>
-          </div>
-
+        <div className="story__intro">
+          <Reveal>
+            <p className="eyebrow">{STORY.eyebrow}</p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 id="story-title" className="story__title">
+              We did not plant a farm.
+              <br />
+              <em>We stopped undoing one.</em>
+            </h2>
+          </Reveal>
           <div className="story__body">
             {STORY.paragraphs.map((p, i) => (
               <Reveal key={i} delay={120 + i * 90}>
                 <p className="story__para">{p}</p>
               </Reveal>
             ))}
-
-            <Reveal delay={340}>
-              <ul className="story__principles" role="list">
-                {STORY.principles.map((p) => (
-                  <li className="story__principle" key={p.name}>
-                    <span aria-hidden="true">{p.icon}</span>
-                    {p.name}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
           </div>
         </div>
+
+        <Reveal delay={260}>
+          <ul className="story__principles" role="list">
+            {STORY.principles.map((p) => (
+              <li className="story__principle" key={p.name}>
+                <span className="story__principle-icon" aria-hidden="true">{p.icon}</span>
+                <strong>{p.name}</strong>
+                <small>{p.note}</small>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
 
         <Reveal className="story__figure" variant="mask" delay={80}>
           <Picture
@@ -85,7 +53,6 @@ export default function Story() {
           </figcaption>
         </Reveal>
 
-        <StatsBand />
       </div>
     </section>
   )
