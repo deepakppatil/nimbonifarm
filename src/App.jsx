@@ -34,8 +34,8 @@ export default function App() {
         <Gallery />
         <Voices />
         <Booking intent={intent} onIntentHandled={clearIntent} />
-        <Faq />
         <Visit />
+        <Faq />
       </main>
       <Footer />
       <MobileCta />

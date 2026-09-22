@@ -13,21 +13,19 @@ export const FARM = {
   tagline: 'Permaculture Farm Stay & Learning Centre',
   established: 2016,
   location: 'Maharashtra, India',
-  // TODO: replace with the real postal address
   address: [
     'Nimboni Farm',
-    'Taluka - Erandol',
-    'Maharashtra 425109',
+    'Bhalgaon Chowk, Jalu',
+    'Taluka - Erandol, Maharashtra 425109',
     'India',
   ],
   mapUrl: 'https://maps.app.goo.gl/E1kVSBikEybRzZaS8',
-  // TODO: real driving distances. These drive the "how far" copy on the visit page.
   distanceNotes: [
-    { from: 'Pune', detail: '~350 Km/6 Hours' },
-    { from: 'Mumbai', detail: '~400 Km/6 Hours' },
-    { from: 'Nearest railway station', detail: 'Jalgaon / 40 Mins' },
+    { from: 'Pune(via Ssamruddhi Expressway)', detail: '~350 Km/7 Hours' },
+    { from: 'Mumbai(via Ssamruddhi Expressway)', detail: '~400 Km/6 Hours' },
+    { from: 'Nearest railway station', detail: 'Jalgaon, 40 Mins' },
   ],
-  email: 'info@nimbonifarm.com', // TODO
+  email: 'info@nimbonifarm.com', 
 }
 
 /**
@@ -35,7 +33,7 @@ export const FARM = {
  * gateway. Both numbers are placeholders in the original build.
  */
 export const CONTACTS = [
-  { person: 'Admin@Nimboni', number: '+919930XXXXXX', role: 'Stays & bookings(Booking are yet to be opened' }, // TODO
+  { person: 'Admin - Nimboni Farms', number: '+91-XXXXXXXXXX', role: 'Stays & bookings(Booking are yet to be opened' },
 ]
 
 export const SOCIALS = [
@@ -71,12 +69,15 @@ export const HERO = {
     { value: 0, suffix: '', label: 'chemicals', sub: 'since day one' },
   ],
   trust: [
-    'NPOP Organic',
+    'Bird Friendly',
     'Rainwater Harvested',
     'Solar Powered',
     'Zero Waste',
     'Pollinator Friendly',
-    'Permaculture Demo Site',
+    'Forest',
+    'Wildlife Habitat',
+    'Organic',
+    'Biodiversity',
   ],
 }
 
@@ -162,18 +163,17 @@ export const EXPERIENCES = [
     summary:
       'Sleep inside the food forest. Wake to birdsong, eat what was picked that morning, ' +
       'and let the day be arranged by the sun for once.',
-    price: 4500,
+    price: 4000,
     priceUnit: 'per person / night',
     priceNote: 'Includes all three meals, farm tours and evening bonfire in season.',
     accent: 'leaf',
     icon: '🏡',
     features: [
-      'Eco-friendly mud & bamboo cottages',
-      'Farm-to-table organic meals — 3 a day',
+      '2 BHK Villa with Fully Equipped Kitchen & Dining Area',
+      'Lunch, Dinner & Breakfast from the farm',
       'Guided farm tour & nature walk',
       'Bird watching and stargazing',
       'Bonfire evenings (in season)',
-      'Wi-Fi in the common areas',
       'Pick-up and drop from the nearest station',
     ],
     requiresWeekend: false,
@@ -191,8 +191,9 @@ export const EXPERIENCES = [
     kicker: 'Learn',
     title: 'Permaculture Design Course',
     summary:
-      'A two-day weekend intensive, taught standing up in the field. You leave with a ' +
-      'design for your own patch of land — balcony, terrace or acreage.',
+      'A hands-on weekend course, taught standing up in the field. The first day covers the ' +
+      'core work; the second is lighter, with time to reflect, revisit what we did and connect ' +
+      'it to your own patch of land — balcony, terrace or acreage.',
     price: 12000,
     priceUnit: 'per person, all-inclusive',
     priceNote: 'Stay, all meals, course materials and certificate included.',
@@ -206,15 +207,14 @@ export const EXPERIENCES = [
       'Food forest design & implementation',
       'Natural building basics',
       'Seed saving & propagation',
-      'Design your own project',
       'Certificate of completion',
     ],
     requiresWeekend: true,
     itinerary: [
       { time: 'Day 1 · morning', text: 'Ethics, principles, and how to read a piece of land.' },
       { time: 'Day 1 · afternoon', text: 'Soil. Hands in it — compost building, sheet mulching, biology you can see.' },
-      { time: 'Day 2 · morning', text: 'Water. Contours, swales, harvesting — then a walk to the farm’s own systems.' },
-      { time: 'Day 2 · afternoon', text: 'Design your own project, present it, take it home. Certificate at 5 PM.' },
+      { time: 'Day 2 · morning', text: 'Revisit the farm’s water systems and reflect on how the pieces fit together.' },
+      { time: 'Day 2 · afternoon', text: 'Open conversation, questions and time to connect the work to your own project. Certificate at 5 PM.' },
     ],
   },
 ]
@@ -249,45 +249,70 @@ export const SPECIES_NOTE =
 
 export const FAQ = [
   {
+    q: 'What is a stay at Nimboni Farm actually like?',
+    a: 'It is less resort, more living landscape. Expect birdsong, fresh food, muddy paths, slow mornings and very few reasons to check your phone. The farm is remote, peaceful and gloriously unhurried.',
+  },
+  {
+    q: 'What is included in a farm stay?',
+    a: 'Your stay includes accommodation, three vegetarian meals a day, a guided farm tour, a nature walk and seasonal evening activities such as a bonfire. We will confirm the exact details when we reply on WhatsApp.',
+  },
+  {
+    q: 'How much does a farm stay cost?',
+    a: 'Farm stays are priced at INR 4,000 per person per night, including accommodation, meals and listed farm activities. Send us your dates and group size for confirmation.',
+  },
+  {
+    q: 'How many guests can stay, and how many nights can we book?',
+    a: 'Farm stays currently allow up to six guests and a maximum of two nights. Larger groups should send us a separate enquiry so we can suggest the best arrangement.',
+  },
+  {
     q: 'Is the farm actually chemical-free?',
-    a: 'Yes — no synthetic fertiliser and no pesticides have gone on this land since 2016. ' +
-      'The farm works on compost, mulch, cover crops and beneficial insects instead.',
+    a: 'Yes. No synthetic fertilisers or pesticides have been used on the farm since 2016. We rely on compost, mulch, cover crops and beneficial insects instead.',
   },
   {
     q: 'What should we pack?',
-    a: 'Closed shoes you do not mind getting muddy, a hat, a torch, and warm layers for the ' +
-      'evening — it cools down faster than the city. Binoculars if you have them.',
+    a: 'Pack relaxed clothes, closed shoes you do not mind getting muddy, a hat, sunscreen, a torch and warm layers for the evening. Binoculars are optional but highly recommended if you enjoy being quietly judged by birds.',
   },
   {
     q: 'Is it suitable for children?',
-    a: 'Very. Kids get the most out of the farm tour and the animal-feeding rounds. ' +
-      'Tell us their ages when you book and we will shape the day around them.',
+    a: 'Yes, provided they are comfortable with uneven ground, outdoor walks and a little dust. Tell us their ages when you enquire so we can suggest the most suitable activities.',
   },
   {
     q: 'Is there mobile network and Wi-Fi?',
-    a: 'Wi-Fi is available in the common areas. Mobile coverage is patchy away from the ' +
-      'cottages — most guests stop noticing by the second day.',
+    a: 'There is no Wi-Fi at the farm. Jio coverage is generally good, while Airtel may be intermittent away from the villa. Consider it a gentle invitation to let the trees have your attention for a while.',
   },
   {
     q: 'What food is served?',
-    a: 'Three farm-to-table vegetarian meals a day, largely grown on site. Tell us about ' +
-      'allergies or dietary requirements in the booking notes and we will cook around them.',
+    a: 'Vegetarian meals feature local cuisine and seasonal produce, much of it grown on the farm(depdending on season). Barbecue and non-vegetarian meals can be arranged with advance notice with extra charges. We are in a remote village, but several excellent local restaurants nearby serve both vegetarian and non-vegetarian food if you have your own vehicle. Contact us and we will gladly guide you.',
+  },
+  {
+    q: 'Are the rooms air-conditioned?',
+    a: 'The rooms are not air-conditioned. During the monsoon and winter, you should not need it: the property opens into the greens through large windows, bringing in fresh air and the landscape itself. Summer conditions can vary, so contact us before booking if this is important to you.',
   },
   {
     q: 'What is the weather like, and do you open in the monsoon?',
-    a: 'The farm is at its greenest between July and September. The monsoon is a genuinely ' +
-      'beautiful time to visit, but some trails close — ask when you book and we will be honest.',
+    a: 'The farm is green throughout the year, with the monsoon usually bringing its most dramatic transformation. Some paths may be harder to access during heavy rain, so ask us about current conditions before travelling.',
+  },
+  {
+    q: 'How is the Permaculture Design Course structured?',
+    a: 'The core course is covered on the first day, with plenty of hands-on time in the field. The second day is much lighter — we revisit what we did, reflect on the process, answer questions and connect the ideas to your own land or project.',
   },
   {
     q: 'How do I confirm a booking?',
-    a: 'There is no payment gateway. Send the form, then message us on WhatsApp — we confirm ' +
-      'availability and hold your dates there. It is deliberately low-tech.',
+    a: 'Fill in the booking form and send it to the farm on WhatsApp. We will check availability and reply with the next steps. Your dates are confirmed only after we respond.',
+  },
+  {
+    q: 'Are there security cameras at the farm?',
+    a: 'Camera surveillance is present in public areas for security. Private spaces, bedrooms and guest areas remain private.',
+  },
+  {
+    q: 'How do we find the farm?',
+    a: 'We are near Jalu in Erandol, Maharashtra. The final stretch is a farm track, so open the map before you leave and message us when you are close. Someone will guide you in from there.',
   },
   {
     q: 'Can we bring a pet?',
-    a: 'Usually yes, if they are comfortable around farm animals. Mention it in the booking ' +
-      'notes so we can prepare a space.',
+    a: 'Yes, pets are welcome, but they are strictly not allowed inside the bedrooms. Please mention your pet when booking so we can help make the stay comfortable for everyone.',
   },
+
 ]
 
 /* ------------------------------------------------------------------ */
@@ -301,4 +326,5 @@ export const NAV = [
   { id: 'gallery', label: 'Gallery' },
   { id: 'booking', label: 'Plan a Visit' },
   { id: 'visit', label: 'Find Us' },
+  { id: 'faq', label: 'FAQ' },
 ]

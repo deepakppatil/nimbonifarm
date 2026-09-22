@@ -7,7 +7,7 @@ export default function Faq() {
   const [open, setOpen] = useState(0)
 
   return (
-    <section className="section section--tight faq" aria-labelledby="faq-title">
+    <section id="faq" className="section section--tight faq" aria-labelledby="faq-title">
       <div className="container container--narrow">
         <Reveal>
           <p className="eyebrow">Before you come</p>

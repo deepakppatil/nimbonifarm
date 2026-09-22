@@ -104,6 +104,21 @@
   background: rgba(20, 37, 26, 0.05);
 }
 
+@media (min-width: 941px) {
+  .hdr:not(.is-scrolled) .hdr__link {
+    color: var(--leaf-soft);
+  }
+
+  .hdr:not(.is-scrolled) .hdr__link:hover,
+  .hdr:not(.is-scrolled) .hdr__link.is-active {
+    color: var(--paper);
+  }
+
+  .hdr:not(.is-scrolled) .hdr__link.is-active {
+    background: rgba(248, 243, 233, 0.12);
+  }
+}
+
 .hdr__link.is-active::after {
   transform: translate(-50%, 0) scale(1);
 }
@@ -1576,6 +1591,12 @@
 /* Date needs room for "Saturday, 14 March 2027"; guests and nights do not. */
 .booking__row--date {
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.75fr) minmax(0, 0.75fr);
+}
+
+.booking__row--date .field__input {
+  height: 3.4rem;
+  padding-block: 0;
+  line-height: 1.2;
 }
 
 .field--sm {
