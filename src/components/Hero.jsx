@@ -55,6 +55,11 @@ export default function Hero() {
 
         <p className="hero__body">{HERO.body}</p>
 
+        <p className="hero__availability">
+          <span aria-hidden="true" />
+          Bookings opening soon
+        </p>
+
         <div className="hero__actions">
           <button type="button" className="btn btn--primary btn--lg" onClick={() => scrollTo(HERO.primaryCta.target)}>
             {HERO.primaryCta.label}
@@ -93,9 +98,9 @@ export default function Hero() {
         <Icon name="arrowDown" size={16} className={videoReady ? '' : 'is-idle'} />
       </button>
 
-      <p className="hero__credit" aria-hidden="true">
+      {/* <p className="hero__credit" aria-hidden="true">
         {FARM.location} · established {FARM.established}
-      </p>
+      </p> */}
     </section>
   )
 }
