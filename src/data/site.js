@@ -13,21 +13,19 @@ export const FARM = {
   tagline: 'Permaculture Farm Stay & Learning Centre',
   established: 2016,
   location: 'Maharashtra, India',
-  // TODO: replace with the real postal address
   address: [
     'Nimboni Farm',
-    'Taluka - Erandol',
-    'Maharashtra 425109',
+    'Bhalgaon Chowk, Jalu',
+    'Taluka - Erandol, Maharashtra 425109',
     'India',
   ],
   mapUrl: 'https://maps.app.goo.gl/E1kVSBikEybRzZaS8',
-  // TODO: real driving distances. These drive the "how far" copy on the visit page.
   distanceNotes: [
-    { from: 'Pune', detail: '~350 Km/6 Hours' },
-    { from: 'Mumbai', detail: '~400 Km/6 Hours' },
-    { from: 'Nearest railway station', detail: 'Jalgaon / 40 Mins' },
+    { from: 'Pune(via Ssamruddhi Expressway)', detail: '~350 Km/7 Hours' },
+    { from: 'Mumbai(via Ssamruddhi Expressway)', detail: '~400 Km/6 Hours' },
+    { from: 'Nearest railway station', detail: 'Jalgaon, 40 Mins' },
   ],
-  email: 'info@nimbonifarm.com', // TODO
+  email: 'info@nimbonifarm.com', 
 }
 
 /**
@@ -35,7 +33,7 @@ export const FARM = {
  * gateway. Both numbers are placeholders in the original build.
  */
 export const CONTACTS = [
-  { person: 'Admin@Nimboni', number: '+919930XXXXXX', role: 'Stays & bookings(Booking are yet to be opened' }, // TODO
+  { person: 'Admin - Nimboni Farms', number: '+91-XXXXXXXXXX', role: 'Stays & bookings(Booking are yet to be opened' },
 ]
 
 export const SOCIALS = [
@@ -71,12 +69,15 @@ export const HERO = {
     { value: 0, suffix: '', label: 'chemicals', sub: 'since day one' },
   ],
   trust: [
-    'NPOP Organic',
+    'Bird Friendly',
     'Rainwater Harvested',
     'Solar Powered',
     'Zero Waste',
     'Pollinator Friendly',
-    'Permaculture Demo Site',
+    'Forest',
+    'Wildlife Habitat',
+    'Organic',
+    'Biodiversity',
   ],
 }
 
@@ -162,18 +163,17 @@ export const EXPERIENCES = [
     summary:
       'Sleep inside the food forest. Wake to birdsong, eat what was picked that morning, ' +
       'and let the day be arranged by the sun for once.',
-    price: 4500,
+    price: 4000,
     priceUnit: 'per person / night',
     priceNote: 'Includes all three meals, farm tours and evening bonfire in season.',
     accent: 'leaf',
     icon: '🏡',
     features: [
-      'Eco-friendly mud & bamboo cottages',
-      'Farm-to-table organic meals — 3 a day',
+      '2 BHK Villa with Fully Equipped Kitchen & Dining Area',
+      'Lunch, Dinner & Breakfast from the farm',
       'Guided farm tour & nature walk',
       'Bird watching and stargazing',
       'Bonfire evenings (in season)',
-      'Wi-Fi in the common areas',
       'Pick-up and drop from the nearest station',
     ],
     requiresWeekend: false,
@@ -206,7 +206,6 @@ export const EXPERIENCES = [
       'Food forest design & implementation',
       'Natural building basics',
       'Seed saving & propagation',
-      'Design your own project',
       'Certificate of completion',
     ],
     requiresWeekend: true,
@@ -249,14 +248,19 @@ export const SPECIES_NOTE =
 
 export const FAQ = [
   {
-    q: 'Is the farm actually chemical-free?',
-    a: 'Yes — no synthetic fertiliser and no pesticides have gone on this land since 2016. ' +
-      'The farm works on compost, mulch, cover crops and beneficial insects instead.',
+    q: 'What makes the surroundings special?',
+    a: 'Our remote, nature-focused setting is designed to help guests slow down and reconnect with the environment. With peaceful surroundings, fresh air, and birdsong all around, most guests quickly adapt to the slower pace and find themselves fully immersed in nature.',
   },
   {
+    q: 'Is the farm actually chemical-free?',
+    a: 'Yes — no synthetic fertiliser and no pesticides have gone on this land since 2020. ' +
+      'The farm works on compost, mulch, cover crops and beneficial insects instead.',
+  },
+
+  {
     q: 'What should we pack?',
-    a: 'Closed shoes you do not mind getting muddy, a hat, a torch, and warm layers for the ' +
-      'evening — it cools down faster than the city. Binoculars if you have them.',
+    a: 'Relaxed cloths, during summer it tend to get very hot. Closed shoes you do not mind getting muddy, a hat, a torch, and warm layers for the ' +
+      'evening(Usually winter are very chilly) — it cools down faster than the city. Binoculars if you have them.',
   },
   {
     q: 'Is it suitable for children?',
@@ -265,18 +269,18 @@ export const FAQ = [
   },
   {
     q: 'Is there mobile network and Wi-Fi?',
-    a: 'Wi-Fi is available in the common areas. Mobile coverage is patchy away from the ' +
-      'cottages — most guests stop noticing by the second day.',
+    a: 'Wi‑Fi is not available, and mobile coverage is good for Jio. Airtel can be intermittent away from the villa.' +
+       'Preserve the tranquillity of this remote, nature-focused setting. Most guests quickly adapt and find themselves fully immersed in the surroundings with Birds singing music for you.'
   },
   {
     q: 'What food is served?',
-    a: 'Three farm-to-table vegetarian meals a day, largely grown on site. Tell us about ' +
+    a: 'Three farm-to-table vegetarian meals a day(depdending on the season), largely grown on site. Tell us about ' +
       'allergies or dietary requirements in the booking notes and we will cook around them.',
   },
   {
     q: 'What is the weather like, and do you open in the monsoon?',
-    a: 'The farm is at its greenest between July and September. The monsoon is a genuinely ' +
-      'beautiful time to visit, but some trails close — ask when you book and we will be honest.',
+    a: 'The farm is at its greenest between July and September and extends its greenary around other surrounding farms till February while the farm itself is forest and its green thoughout the year. The monsoon is a genuinely ' +
+      'beautiful time to visit, but you may not be able to take a walk into entire farm — ask when you book and we will be honest.',
   },
   {
     q: 'How do I confirm a booking?',
@@ -285,9 +289,10 @@ export const FAQ = [
   },
   {
     q: 'Can we bring a pet?',
-    a: 'Usually yes, if they are comfortable around farm animals. Mention it in the booking ' +
-      'notes so we can prepare a space.',
+    a: 'Usually yes, but they are not allowed inside the bedrooms. If they are comfortable around farm animals then we have no issues. Mention it in the booking ' +
+      'notes so we are prepared.',
   },
+
 ]
 
 /* ------------------------------------------------------------------ */

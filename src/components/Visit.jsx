@@ -62,9 +62,6 @@ export default function Visit() {
                   </li>
                 ))}
               </ul>
-              <p className="visit__todo">
-                Distances are placeholders — update them in <code>src/data/site.js</code>.
-              </p>
             </Reveal>
 
             <Reveal className="visit__card visit__card--wa" delay={120}>
