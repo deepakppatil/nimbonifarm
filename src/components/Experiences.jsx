@@ -40,6 +40,12 @@ export default function Experiences({ onChoose }) {
 
                 <h3 className="exp-card__title">{exp.title}</h3>
                 <p className="exp-card__summary">{exp.summary}</p>
+                {exp.id === 'farm-stay' && (
+                  <a className="exp-card__stay-link" href="#stay">
+                    See the stay and night sky
+                    <Icon name="arrowRight" size={15} />
+                  </a>
+                )}
 
                 <div className="exp-card__price">
                   <span className="exp-card__amount">

@@ -4,7 +4,7 @@ import { Icon } from './Icons.jsx'
 import { Picture, Lightbox } from './Media.jsx'
 import { MEDIA } from '../data/site.js'
 
-const LAYOUT = ['a', 'b', 'c', 'd']
+const LAYOUT = ['a', 'b', 'c', 'd', 'e']
 
 export default function Gallery() {
   const [open, setOpen] = useState(null)
@@ -20,13 +20,13 @@ export default function Gallery() {
           <Reveal>
             <p className="eyebrow">From above</p>
             <h2 id="gal-title" className="sec-head__title">
-              160000+ Square Feet, six seconds, one flight.
+              See the farm from above — then walk it.
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="lede">
-              The farm photographs badly from the ground — you cannot see the pattern until you
-              are a hundred feet up. Tap any frame.
+              See the farm from above, then follow its paths on foot. Tap any frame to take a
+              closer look.
             </p>
           </Reveal>
         </div>
@@ -44,7 +44,7 @@ export default function Gallery() {
                   <>
                     <img
                       className="gal__img"
-                      src="/media/drone-poster.webp"
+                      src={item.poster}
                       alt={item.alt}
                       loading="lazy"
                       decoding="async"
@@ -52,7 +52,7 @@ export default function Gallery() {
                     <span className="gal__play" aria-hidden="true">
                       <Icon name="play" size={22} />
                     </span>
-                    <span className="gal__badge">Drone flyover · 0:06</span>
+                    <span className="gal__badge">{item.badge}</span>
                   </>
                 ) : (
                   <Picture

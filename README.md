@@ -64,8 +64,9 @@ numerals instead of a mismatch.
 | **Marquee** | Credentials ticker — organic, rainwater, solar, zero waste. |
 | **The turn** | The origin story, the eight permaculture principles, and a stat band that counts up on scroll. |
 | **Two ways in** | Farm stay vs. course, priced, with a tabbed hour-by-hour schedule for each. |
+| **The farm stay** | An honest look at the villa and phone-captured night skies, with clear weather and moonlight caveats. |
 | **The food forest** | The species that are actually planted, with counts. |
-| **From above** | Mosaic gallery + lightbox (the old grid rendered nothing — it sliced a 4-item array at index 4). |
+| **From above** | Aerial photographs, a drone flyover and a farm walk in a mosaic gallery + lightbox. |
 | **Guest book** | Working feedback wall. |
 | **Plan a visit** | Booking form with a live estimate rail and a real WhatsApp handoff. |
 | **Before you come** | FAQ accordion that answers the objections that stop a booking. |
@@ -89,10 +90,11 @@ and a scroll-progress hairline in the header.
 
 ### Engineering
 
-- **Media is 3 MB, not 90 MB.** The 78 MB 4K drone clip is now a 495 KB 720p
-  loop with a poster frame; the 4 MB JPEGs are WebP at 640/1280/1920 with JPEG
-  fallbacks. Originals stay in `src/assets/farm-images/` as masters and are
-  deliberately not imported, so they never reach the bundle.
+- **Media is optimized for the web.** The drone clip is a 720p loop and the
+  4K farm-walk master is served as a browser-compatible 540p MP4 with a poster
+  frame; farm photos are WebP at 640/1280/1920 with JPEG fallbacks, and stay
+  photos are optimized WebP. Original media stays outside the public build
+  where possible, so it is not bundled.
 - **Video respects `prefers-reduced-motion` and Save-Data** — it never
   auto-plays in those cases.
 - Content is split out into `src/data/site.js`; components hold no copy.

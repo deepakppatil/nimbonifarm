@@ -153,17 +153,29 @@
 @media (max-width: 940px) {
   .hdr__burger {
     display: grid;
+    position: relative;
+    z-index: 2;
   }
 
-  .hdr:not(.is-scrolled) .hdr__burger {
+  .hdr__burger[aria-expanded='true'] {
+    color: var(--ink);
+    border-color: var(--line-strong);
+  }
+
+  .hdr:not(.is-scrolled) .hdr__burger[aria-expanded='false'] {
     color: var(--paper);
     border-color: rgba(248, 243, 233, 0.42);
+  }
+
+  .hdr__brand {
+    position: relative;
+    z-index: 2;
   }
 
   .hdr__nav {
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 1;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
@@ -754,6 +766,20 @@
   max-width: 40ch;
 }
 
+.exp-card__stay-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  color: var(--leaf);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.exp-card__stay-link:hover {
+  color: var(--ink);
+}
+
 .exp-card__price {
   display: flex;
   align-items: baseline;
@@ -992,8 +1018,220 @@
 }
 
 /* ---------------------------------------------------------------
+   Farm stay
+   --------------------------------------------------------------- */
+
+.stay__head {
+  align-items: end;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.stay__head .sec-head__title {
+  max-width: 17ch;
+}
+
+.stay__retreat {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  align-items: stretch;
+  gap: clamp(1rem, 2.2vw, 1.75rem);
+}
+
+.stay__rooms {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(0.6rem, 1.3vw, 1rem);
+  min-width: 0;
+}
+
+.stay__photo,
+.stay__sky-photo {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--r-lg);
+  background: var(--ink-2);
+}
+
+.stay__photo {
+  aspect-ratio: 4 / 5;
+}
+
+.stay__photo::after,
+.stay__sky-photo::after {
+  content: '';
+  position: absolute;
+  inset: 35% 0 0;
+  z-index: -1;
+  background: linear-gradient(transparent, rgba(11, 22, 15, 0.76));
+}
+
+.stay__photo img,
+.stay__sky-photo img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stay__photo--room img {
+  object-position: center 75%;
+}
+
+.stay__photo figcaption,
+.stay__sky-photo figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2.5rem 1rem 1rem;
+  color: var(--paper);
+  font-size: var(--step--1);
+  line-height: 1.4;
+}
+
+.stay__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--s-4);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  background: var(--paper-card);
+  box-shadow: var(--sh-1);
+}
+
+.stay__details h3 {
+  max-width: 15ch;
+  font-size: var(--step-3);
+  line-height: 1.05;
+}
+
+.stay__details > p:not(.eyebrow) {
+  max-width: 38ch;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.stay__facts {
+  display: grid;
+  gap: 0.65rem;
+  width: 100%;
+  padding-block: var(--s-4);
+  border-block: 1px solid var(--line);
+  color: var(--text-soft);
+  font-size: var(--step--1);
+}
+
+.stay__facts li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.stay__facts li::before {
+  content: '';
+  width: 0.38rem;
+  height: 0.38rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--leaf-bright);
+}
+
+.stay__sky {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.78fr) minmax(0, 1.22fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(76, 122, 52, 0.2), transparent 45%),
+    var(--ink);
+  color: var(--paper);
+}
+
+.stay__sky-copy {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-4);
+}
+
+.stay__sky-copy h3 {
+  max-width: 13ch;
+  color: var(--paper);
+  font-size: var(--step-3);
+  line-height: 1.02;
+}
+
+.stay__sky-copy > p:not(.eyebrow) {
+  max-width: 44ch;
+  color: rgba(248, 243, 233, 0.76);
+  font-size: var(--step-0);
+  line-height: 1.55;
+}
+
+.stay__sky-copy .stay__sky-note {
+  padding-top: var(--s-3);
+  border-top: 1px solid rgba(248, 243, 233, 0.2);
+  color: rgba(248, 243, 233, 0.62);
+  font-size: var(--step--1);
+}
+
+.stay__sky-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  gap: clamp(0.55rem, 1vw, 0.85rem);
+  min-width: 0;
+}
+
+.stay__sky-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.stay__sky-photo--1 {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 8;
+}
+
+.stay__sky-photo--2 img {
+  object-position: center 38%;
+}
+
+.stay__sky-photo--3 img {
+  object-position: center 54%;
+}
+
+.stay__sky-photo figcaption {
+  padding: 2rem 0.85rem 0.75rem;
+  font-size: 0.76rem;
+}
+
+/* ---------------------------------------------------------------
    Food forest
    --------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .stay__sky {
+    grid-template-columns: 1fr;
+  }
+
+  .stay__sky-copy {
+    max-width: 62ch;
+  }
+}
+
+@media (max-width: 800px) {
+  .stay__retreat {
+    grid-template-columns: 1fr;
+  }
+}
 
 .forest__rail {
   display: grid;
@@ -1120,7 +1358,8 @@
   grid-row: span 2;
 }
 
-.gal__cell--d {
+.gal__cell--d,
+.gal__cell--e {
   grid-column: 1 / -1;
 }
 
@@ -1143,7 +1382,8 @@
   --ar: auto;
 }
 
-.gal__cell--d {
+.gal__cell--d,
+.gal__cell--e {
   --ar: 21 / 9;
 }
 
@@ -1249,7 +1489,8 @@
     grid-row: auto;
     --ar: 4 / 3;
   }
-  .gal__cell--d {
+  .gal__cell--d,
+  .gal__cell--e {
     grid-column: auto;
     --ar: 16 / 9;
   }

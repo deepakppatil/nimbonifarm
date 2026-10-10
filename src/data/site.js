@@ -111,6 +111,21 @@ export const MEDIA = [
     type: 'video',
     alt: 'Six-second drone flight over Nimboni Farm',
     caption: 'Six seconds over green forest spread overs acres.',
+    src: '/media/drone-hero.mp4',
+    poster: '/media/drone-poster.webp',
+    badge: 'Drone flyover · 0:06',
+    autoPlay: true,
+    loop: true,
+    muted: true,
+  },
+  {
+    id: 'farm-walk',
+    type: 'video',
+    alt: 'A walk along the paths through Nimboni Farm',
+    caption: 'A closer look at the paths, trees and living landscape.',
+    src: '/media/farm-walk.mp4',
+    poster: '/media/farm-walk-poster.jpg',
+    badge: 'Farm walk · 0:52',
   },
 ]
 
@@ -174,7 +189,7 @@ export const EXPERIENCES = [
       '2 BHK Villa with Fully Equipped Kitchen & Dining Area',
       'Lunch, Dinner & Breakfast from the farm',
       'Guided farm tour & nature walk',
-      'Bird watching and stargazing',
+      'Birdwatching, with stargazing when the sky allows',
       'Bonfire evenings (in season)',
       'Amenities: Luxury Bed, towels, toiletries in common areas, hammocks, outdoor seating, fire pit, open-air dining, and more',
       'Endulge in the books from our library',
@@ -184,7 +199,7 @@ export const EXPERIENCES = [
       { time: 'Arrive · afternoon', text: 'Settle into your cottage, walk the tree lines with a cup of lemongrass tea.' },
       { time: 'Late afternoon', text: 'Guided farm tour — the water systems, the compost, the lime terraces.' },
       { time: 'Evening', text: 'Wood-fire dinner from that morning’s harvest, then the bonfire.' },
-      { time: 'Night', text: 'No streetlights for eleven kilometres. The sky does the rest.' },
+      { time: 'Night', text: 'Step outside and look up if the moon, clouds and sky conditions are right.' },
       { time: 'Early morning', text: 'Bird walk at first light — over forty species recorded on the farm.' },
       { time: 'Breakfast & departure', text: 'Farm breakfast, then a slow goodbye.' },
     ],
@@ -226,6 +241,51 @@ export const GROUP_ENQUIRY = {
   id: 'group-visit',
   title: 'Group, school or corporate visit',
   summary: 'Custom dates, custom programme. Tell us the headcount and what you want the day to teach.',
+}
+
+/* ------------------------------------------------------------------ */
+/* Farm stay                                                           */
+/* ------------------------------------------------------------------ */
+
+export const STAY = {
+  title: 'Make the farm your home for a few days.',
+  intro:
+    'A two-bedroom villa, meals from the farm and room to slow down. The paths, trees and open sky are right outside.',
+  retreatTitle: 'A simple base, close to the living landscape.',
+  retreatCopy:
+    'Settle into the villa, share a meal and take the day at the farm’s pace. This is a lived-in farm stay, with the outdoors as the main event.',
+  roomImage: {
+    src: '/media/stay/room.webp',
+    alt: 'Bedroom inside the two-bedroom farm stay villa',
+    caption: 'Inside the farm-stay villa.',
+  },
+  pathImage: {
+    src: '/media/stay/path-at-dusk.webp',
+    alt: 'Steps leading from the villa towards the farm at dusk',
+    caption: 'The farm begins just outside.',
+  },
+  skyTitle: 'Some nights, the sky stays with you.',
+  skyCopy:
+    'These phone photographs were made at the farm on clear, dark nights. A steady phone and a long exposure can bring out stars that are easy to miss at a glance.',
+  skyNote:
+    'Stargazing is an optional possibility, never a guarantee. Moon phase, cloud cover and local light all affect visibility; these photographs show a particularly clear night, not what every stay will look like.',
+  skyPhotos: [
+    {
+      src: '/media/stay/shooting-star.webp',
+      alt: 'A shooting star captured above dark tree silhouettes on a clear night at the farm',
+      caption: 'A shooting star, caught on a phone.',
+    },
+    {
+      src: '/media/stay/clear-sky-wide.webp',
+      alt: 'Stars across the sky above the farm in a phone photograph taken on a clear night',
+      caption: 'A phone photo on an unusually clear night.',
+    },
+    {
+      src: '/media/stay/clear-sky-phone.webp',
+      alt: 'A vertical phone photograph showing the Milky Way on a clear night',
+      caption: 'A longer exposure reveals more detail.',
+    },
+  ],
 }
 
 /* ------------------------------------------------------------------ */
@@ -296,6 +356,10 @@ export const FAQ = [
   {
     q: 'What is included in a farm stay?',
     a: 'Your stay includes accommodation, three vegetarian meals a day, a guided farm tour, a nature walk and seasonal evening activities such as a bonfire. We will confirm the exact details when we reply on WhatsApp.',
+  },
+  {
+    q: 'Can we stargaze during our stay?',
+    a: 'You are welcome to look at the night sky, and on clear, darker nights it can be rewarding. Stargazing is weather- and moon-dependent, and nearby light affects visibility, so we cannot guarantee what you will see on a particular night.',
   },
   {
     q: 'How much does a farm stay cost?',
