@@ -9,42 +9,6 @@ at it. Your only ongoing cost is the domain renewal itself.
 
 ---
 
-## 0. Before you deploy: fix the placeholders
-
-**Do not put this on a real domain as it stands.** Every placeholder inherited
-from the original build is still in the code, and "Mr. Foo Bar" as the contact
-name on a live booking site will cost you enquiries.
-
-Everything is in one file: **`src/data/site.js`**. Search it for `TODO`.
-
-| What | Where | Current value |
-| --- | --- | --- |
-| WhatsApp numbers | `CONTACTS[].number` | `+919930123456`, `+919930456789` |
-| Contact names | `CONTACTS[].person` | `Mr. Foo Bar`, `Mrs. Foo Bar` |
-| Address | `FARM.address` | `Survey No. 123/4, Near Green Valley …` |
-| Email | `FARM.email` | `hello@nimbonifarm.example` |
-| Social links | `SOCIALS[].href` | `instagram.com`, `facebook.com`, `youtube.com` |
-| Drive distances | `FARM.distanceNotes` | `Add real distance / drive time` |
-
-Then in **`index.html`**, line 17:
-
-```html
-<link rel="canonical" href="https://nimbonifarm.example/" />
-```
-
-Replace with your real domain.
-
-Two more judgement calls, both in the PR description:
-
-- **The guest book is empty.** Notes save to the visitor's own browser, so a new
-  visitor sees an empty wall. An empty wall does not sell. Either paste in real
-  guest feedback, or decide you are happy to grow it organically.
-- **Enquiries have no server.** The form opens WhatsApp and keeps a
-  `localStorage` copy. If a visitor closes the tab without sending, the enquiry
-  is lost.
-
----
-
 ## 1. Pick a host
 
 | | Bandwidth | Custom domain | SSL | Commercial use | Notes |
