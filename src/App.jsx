@@ -31,14 +31,14 @@ export default function App() {
         <Hero />
         <Marquee />
         <Story />
-        <Experiences onChoose={choose} />
-        <Stay />
         <Forest />
         <Gallery />
-        <Team />
-        <Voices />
+        <Experiences onChoose={choose} />
+        <Stay />
         <Booking intent={intent} onIntentHandled={clearIntent} />
         <Visit />
+        <Voices />
+        <Team />        
         <Faq />
       </main>
       <Footer />

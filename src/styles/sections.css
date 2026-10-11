@@ -151,6 +151,11 @@
 }
 
 @media (max-width: 940px) {
+  .hdr.is-scrolled {
+    background: var(--paper);
+    backdrop-filter: none;
+  }
+
   .hdr__burger {
     display: grid;
     position: relative;
