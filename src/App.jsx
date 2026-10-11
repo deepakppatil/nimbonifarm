@@ -37,8 +37,7 @@ export default function App() {
         <Stay />
         <Booking intent={intent} onIntentHandled={clearIntent} />
         <Visit />
-        <Voices />
-        <Team />        
+        {/* <Team />         */}
         <Faq />
       </main>
       <Footer />

@@ -250,18 +250,17 @@ PAGES_BASE_PATH  >  PAGES_CUSTOM_DOMAIN (=> /)  >  /<repo-name>/
 
 **c. Create the branch and push**
 
-This work currently lives on `arena/01a0c5bb-nimbonifarm`. Branch off that and
+This work currently lives on `develop`. Branch off that and
 push:
 
 ```bash
-git fetch origin
-git switch arena/01a0c5bb-nimbonifarm
-git switch -c feature/0.1.1
-git push -u origin feature/0.1.1
+git fetch
+git checkout develop
+git push -u origin develop
 ```
 
-(If you have merged this into `develop` instead, just
-`git switch develop && git switch -c feature/0.1.1`.)
+(If you have merged this into `main` instead, just
+`git switch main && git switch -c develop`.)
 
 The first deploy starts immediately. Watch it under the **Actions** tab — the
 whole run takes about a minute. When it goes green, GitHub prints the live URL
