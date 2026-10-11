@@ -5,9 +5,8 @@ name: Deploy to GitHub Pages
 # Run workflow, which lets you deploy whatever branch you pick.
 on:
   push:
-    branches:
-      - develop
-      - feature/1.0.0
+    tags:
+      - "v*.*.*"
   workflow_dispatch:
 
 # Never let two deploys race each other.
@@ -25,10 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
 
       - uses: actions/setup-node@v4
         with:
-          # Vite 8 requires Node ^20.19 || >=22.12. Do not lower this.
           node-version: 22
           cache: npm
 
