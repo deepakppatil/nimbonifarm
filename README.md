@@ -1,174 +1,350 @@
-# Nimboni Farm
+<div align="center">
 
-Website for a four-acre permaculture farm in Maharashtra: a farm stay and a
-weekend permaculture design course. Built with React 19 + Vite.
+# 🌿 Nimboni Farm
 
-```bash
-npm install
-npm run dev      # http://localhost:5173
-npm run build    # → dist/
-npm run preview
-npm run lint
-```
+**A four-acre permaculture farm in Maharashtra — farm stay, weekend courses, and a living food forest.**
+
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?logo=github)](https://pages.github.com/)
+[![License](https://img.shields.io/badge/License-Proprietary-lightgrey.svg)](#license)
+
+[Overview](#-overview) ·
+[Features](#-features) ·
+[Getting Started](#-getting-started) ·
+[Project Structure](#-project-structure) ·
+[Deployment](#-deployment) ·
+[Release Process](#-release-process)
+
+</div>
 
 ---
 
-## What changed in this redesign
+## 🌱 Overview
 
-The old site was a competent but generic React template: grey-on-white, Inter
-throughout, a stock Vite favicon, and a booking form that ended in
-`console.log()`. It described the farm without ever making you want to go there.
+**Nimboni Farm** is the website for a four-acre permaculture farm in Maharashtra, offering a farm stay and a weekend permaculture design course.
 
-The rebuild is built around one idea, taken straight from the farm's own
-history: **this land was bare in 2016, and it is a forest now.** That
-transformation is the single most persuasive thing about the place, so it leads
-the page instead of sitting buried in an "About" block.
+The site is built around the farm’s central story: **bare ground in 2016 became a living farm forest**. It leads with that transformation through full-bleed drone imagery, a warm earth-and-forest visual language, and a booking experience designed to turn interest into a WhatsApp enquiry.
 
-### Art direction
+Built with **React 19 + Vite**, optimized for fast static hosting, and deployed through GitHub Actions to GitHub Pages.
 
-- **Parchment, forest ink, clay, harvest amber.** No neutral grey — the palette
-  is soil, leaf and sun. A single low-opacity paper-grain film sits over the
-  whole page to keep the photography from feeling like a screenshot.
-- **Instrument Serif** for display against **Inter** for UI. Two voices, no
-  third. The serif ships a single weight, so headings earn their authority from
-  size and leading rather than from weight — the restraint is the point.
-  `font-synthesis: none` is set globally so the browser never fakes a bold.
-- **Photography first.** The drone imagery is the best asset the farm has, so it
-  is full-bleed, un-cropped and given room to breathe.
+---
 
-### The identity
+## ✨ Features
 
-The farm is named for the **nim** (neem), so the mark is a neem sprig rather
-than a generic leaf: one rib carrying four pairs of leaflets and a terminal
-leaflet, drawn as rotated ellipses in `NimboniMark`. Neem leaves are pinnate,
-which makes the silhouette ownable — it reads as foliage at 24px and as botany
-at 96px. The geometry is balanced to sit dead-centre in its 48×48 box
-(centre 24.00, 24.00) and is symmetric to within a pixel.
+### Experience-led design
 
-The wordmark sets **Nimboni** in the display serif with **.farm** as a small
-sans suffix in leaf green — the brand's one flourish. Both live in
-`src/components/Icons.jsx`.
+- Full-bleed drone video hero: *“Barren ground in 2016. A living farm forest now.”*
+- Parchment, forest ink, clay, and harvest-amber palette.
+- **Instrument Serif** for display typography paired with **Inter** for interface text.
+- Photography-first layout with a subtle paper-grain texture.
+- Custom neem-sprig brand mark and `Nimboni.farm` wordmark.
 
-One typographic wrinkle worth knowing: neither Instrument Serif nor Inter
-ships U+20B9 (₹) — it falls outside the Google Fonts `latin` subset, so the
-browser resolves it from a system font. Rather than leave that to chance,
-`src/components/Price.jsx` sets the rupee mark deliberately in the sans voice
-at 62% size, so it reads as a considered currency mark next to the serif
-numerals instead of a mismatch.
+### Visitor journey
 
-### Structure, in the order a visitor meets it
+| Section | Purpose |
+|---|---|
+| **Hero** | Establish the farm’s transformation with drone footage and key facts |
+| **Marquee** | Highlight organic practices, rainwater harvesting, solar power, and zero waste |
+| **The Turn** | Tell the origin story and introduce permaculture principles |
+| **Two Ways In** | Compare the farm stay and permaculture course |
+| **Farm Stay** | Showcase the villa, night skies, weather, and moonlight considerations |
+| **Food Forest** | Present planted species and biodiversity |
+| **From Above** | Aerial photographs, drone footage, and a farm-walk gallery |
+| **Guest Book** | Collect and display visitor feedback |
+| **Plan a Visit** | Booking form with live estimate and WhatsApp handoff |
+| **Before You Come** | Answer common visitor questions |
+| **Find Us** | Map, directions, and contact options |
 
-| Section | Job |
-| --- | --- |
-| **Hero** | Full-bleed drone loop. "Barren ground in 2016. / A living farm forest now." Four hard numbers underneath. |
-| **Marquee** | Credentials ticker — organic, rainwater, solar, zero waste. |
-| **The turn** | The origin story, the eight permaculture principles, and a stat band that counts up on scroll. |
-| **Two ways in** | Farm stay vs. course, priced, with a tabbed hour-by-hour schedule for each. |
-| **The farm stay** | An honest look at the villa and phone-captured night skies, with clear weather and moonlight caveats. |
-| **The food forest** | The species that are actually planted, with counts. |
-| **From above** | Aerial photographs, a drone flyover and a farm walk in a mosaic gallery + lightbox. |
-| **Guest book** | Working feedback wall. |
-| **Plan a visit** | Booking form with a live estimate rail and a real WhatsApp handoff. |
-| **Before you come** | FAQ accordion that answers the objections that stop a booking. |
-| **Find us** | Map, directions, both WhatsApp lines. |
+### Booking and conversion
 
-Plus a **sticky mobile bar** so the booking CTA is never more than a thumb away,
-and a scroll-progress hairline in the header.
-
-### Conversion work
-
-- **The booking form goes somewhere.** It validates, stores the enquiry locally,
-  then opens WhatsApp with every detail pre-written for the farm to read. The
-  old form validated, logged to the console, and thanked you.
-- **Per-service rules.** Weekend-only validation now applies to the course only
-  — it used to reject weekday farm stays too, which is a third of the week's
-  potential bookings turned away.
-- **Live estimate rail** next to the form, so nobody has to do mental arithmetic.
-- **Service cards hand their choice to the form.** "Check dates" on the course
-  card scrolls to booking *with the course already selected*.
-- **Price shown early and plainly**, with what's included.
+- Booking form validates input and opens WhatsApp with a pre-filled enquiry.
+- Live estimate rail shows expected pricing as visitors select options.
+- Course and farm-stay cards pass their selection directly into the booking form.
+- Weekend-only scheduling rules apply specifically to the course.
+- Sticky mobile booking bar keeps the primary call to action accessible.
 
 ### Engineering
 
-- **Media is optimized for the web.** The drone clip is a 720p loop and the
-  4K farm-walk master is served as a browser-compatible 540p MP4 with a poster
-  frame; farm photos are WebP at 640/1280/1920 with JPEG fallbacks, and stay
-  photos are optimized WebP. Original media stays outside the public build
-  where possible, so it is not bundled.
-- **Video respects `prefers-reduced-motion` and Save-Data** — it never
-  auto-plays in those cases.
-- Content is split out into `src/data/site.js`; components hold no copy.
-- Scroll-reveal, count-up and nav highlighting all run off `IntersectionObserver`.
-- Keyboard-navigable lightbox, proper accordion semantics, skip link, focus
-  rings, `aria-invalid` on failed fields.
-- `node_modules/` and `.DS_Store` are no longer tracked.
+- Optimized media: responsive WebP images with JPEG fallbacks and compressed MP4 video.
+- Video respects `prefers-reduced-motion` and `Save-Data`.
+- Content is centralized in `src/data/site.js`.
+- Scroll reveal, count-up animations, and navigation highlighting use `IntersectionObserver`.
+- Accessible lightbox, accordion, skip link, focus states, and form validation.
+- `node_modules/` and `.DS_Store` are excluded from version control.
 
 ---
 
-## Before you go live
+## 🚀 Getting Started
 
-Every value marked `TODO` in `src/data/site.js` is a placeholder inherited from
-the original build. Nothing else needs editing.
+### Requirements
 
-1. **WhatsApp numbers and contact names** — currently `+919930123456` /
-   "Mr. Foo Bar" and `+919930456789` / "Mrs. Foo Bar".
-2. **Address** — "Survey No. 123/4, Near Green Valley … 410XXX".
-3. **Driving distances** — the FAQ and "find us" card need real times from Pune
-   and Mumbai.
-4. **Email** — `hello@nimbonifarm.example`.
-5. **Social links** — still pointing at `instagram.com`, `facebook.com`,
-   `youtube.com`.
-6. **`<link rel="canonical">` in `index.html`** — set to the real domain.
+| Tool | Minimum version |
+|---|---|
+| [Node.js](https://nodejs.org/) | 18+ |
+| [npm](https://www.npmjs.com/) | 9+ |
 
-Two things to decide on:
-
-- **The guest book is local-only.** Notes are saved in the visitor's browser, so
-  new visitors see an empty wall. Fabricating testimonials would have been the
-  faster-looking option and the wrong one — but an empty wall does not sell.
-  Either point this form at a real backend/review platform, or paste in genuine
-  guest feedback once you have it.
-- **Enquiries have no server.** The form hands off to WhatsApp and keeps a copy
-  in `localStorage`. That matches how the farm actually works, but it means no
-  enquiry is captured if a visitor closes the tab without sending. A form
-  endpoint (Formspree, a Netlify function, anything) would close that gap.
-
-## Layout
-
-```
-src/
-  data/site.js          all copy, prices, contacts, links
-  components/           one file per section
-  lib/hooks.js          reveal, count-up, scroll progress, body lock
-  styles/
-    tokens.css          palette, type scale, spacing, motion
-    base.css            reset, typography, buttons, primitives
-    sections.css        per-section layout
-public/media/           optimised derivatives (WebP/JPEG/MP4)
-```
-
-## Requirements
-
-- Node.js 18+
-- npm 9+
-
-## Deployment
-
-Static hosting (Netlify, Vercel, Cloudflare Pages, GitHub Pages):
+### Installation
 
 ```bash
-npm run build     # → dist/
-# deploy the dist/ folder
+git clone [https://github.com/deepakppatil/nimbonifarm.git](https://github.com/deepakppatil/nimbonifarm.git)
+cd nimbonifarm
+npm install
 ```
 
-No environment variables — all configuration lives in `src/data/site.js`.
+### Available scripts
 
-## Credits
-
-- **Type**: Instrument Serif (display) and Inter (UI), both from Google Fonts
-- **Photography**: Nimboni Farm drone photography
-- **Mark**: neem sprig, drawn for this brand
-- **Icons**: custom SVGs, drawn for this build
+```bash
+npm run dev        # Start local development server at http://localhost:5173
+npm run build      # Create production build in dist/
+npm run preview    # Preview the production build locally
+npm run lint       # Run linting
+```
 
 ---
 
+## ⚙️ Configuration
+
+No environment variables are required for the standard build. Site content, contact details, pricing, links, and media references are managed in:
+
+```text
+src/data/site.js
+```
+
+Before going live, replace all `TODO` placeholders, including:
+
+- WhatsApp numbers and contact names
+- Farm address and driving directions
+- Email address
+- Social media links
+- Canonical URL in `index.html`
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+├── data/
+│   └── site.js              # Copy, pricing, contacts, links, and media data
+├── components/              # One component file per page section
+├── lib/
+│   └── hooks.js             # Reveal, count-up, scroll progress, and body-lock hooks
+└── styles/
+    ├── tokens.css           # Palette, typography, spacing, and motion tokens
+    ├── base.css             # Reset, typography, buttons, and shared primitives
+    └── sections.css         # Section-specific layout styles
+
+public/
+└── media/                   # Optimized WebP, JPEG, and MP4 assets
+```
+
+---
+
+## 📦 Deployment
+
+The production build is generated into `dist/`:
+
+```bash
+npm run build
+```
+
+The site can be deployed to any static hosting provider, including:
+
+- GitHub Pages
+- Netlify
+- Vercel
+- Cloudflare Pages
+
+For GitHub Pages, deployment is automated through GitHub Actions whenever a release tag is pushed.
+
+---
+
+## 🏷️ Release Process
+
+This project uses `develop` for development and `main` for production releases. Production deployment is triggered only when a semantic version tag is pushed to `main`.
+
+### Branch model
+
+| Branch / ref | Purpose |
+|---|---|
+| `develop` | Active development and integration |
+| `main` | Stable production release branch |
+| `feature/*` | Feature or bug-fix branches |
+| `vX.Y.Z` | Immutable release tags created on `main` |
+
+### Versioning
+
+The project follows [Semantic Versioning](https://semver.org/):
+
+| Change type | Version example | Example |
+|---|---|---|
+| Bug fixes | `v1.0.1` | Patch release |
+| New backward-compatible features | `v1.1.0` | Minor release |
+| Breaking changes | `v2.0.0` | Major release |
+
+### Standard release
+
+1. Ensure all intended work is merged into `develop`.
+2. Verify the site builds and behaves correctly.
+3. Merge `develop` into `main`.
+4. Run the release script.
+5. Monitor the GitHub Actions deployment.
+
+```bash
+# Update develop
+git checkout develop
+git pull origin develop
+
+# Merge develop into main
+git checkout main
+git pull origin main
+git merge --no-ff develop
+git push origin main
+
+# Create and push a release
+./scripts/release.sh patch
+```
+
+The release script supports:
+
+```bash
+./scripts/release.sh patch    # v1.0.0 -> v1.0.1
+./scripts/release.sh minor    # v1.0.0 -> v1.1.0
+./scripts/release.sh major    # v1.0.0 -> v2.0.0
+./scripts/release.sh 1.2.3    # Explicit version
+```
+
+It performs the following safety checks and actions:
+
+- Requires a clean Git working tree.
+- Fetches and updates `main` and `develop`.
+- Confirms `develop` has no unmerged commits.
+- Bumps `package.json` and `package-lock.json`.
+- Commits the version bump.
+- Creates an annotated `vX.Y.Z` tag.
+- Pushes `main` and the tag.
+- Triggers the GitHub Pages deployment workflow.
+
+### First release
+
+Ensure `package.json` contains:
+
+```json
+{
+  "version": "1.0.0"
+}
+```
+
+Then merge `develop` into `main` and run:
+
+```bash
+./scripts/release.sh 1.0.0
+```
+
+This creates the first production tag, `v1.0.0`, and starts the deployment.
+
+### Hotfix release
+
+For an urgent production fix:
+
+```bash
+# Create a hotfix branch from main
+git checkout main
+git pull origin main
+git checkout -b hotfix/short-description
+
+# Fix, commit, and push
+git push origin hotfix/short-description
+```
+
+Open a pull request into `main`, merge it, then release:
+
+```bash
+./scripts/release.sh patch
+```
+
+Finally, merge `main` back into `develop`:
+
+```bash
+git checkout develop
+git pull origin develop
+git merge --no-ff main
+git push origin develop
+```
+
+### Create a GitHub Release
+
+After the tag is pushed and deployment succeeds:
+
+1. Open **Releases** in the GitHub repository.
+2. Select **Draft a new release**.
+3. Choose the existing tag, such as `v1.0.0`.
+4. Add a title and release notes.
+5. Select **Publish release**.
+
+Or use GitHub CLI:
+
+```bash
+gh release create v1.0.0 \
+  --target main \
+  --title "Release v1.0.0" \
+  --notes "Initial production release."
+```
+
+---
+
+## 🧰 Troubleshooting
+
+### Workflow did not run
+
+- Confirm the tag follows `v*.*.*`, such as `v1.0.0`.
+- Confirm the tag was pushed to GitHub.
+- Confirm the workflow contains:
+
+```yaml
+on:
+  push:
+    tags:
+      - "v*.*.*"
+```
+
+### Release script reports unmerged `develop` commits
+
+Merge `develop` into `main` before releasing:
+
+```bash
+git checkout main
+git pull origin main
+git merge --no-ff develop
+git push origin main
+```
+
+### Tag already exists
+
+Do not move or reuse release tags. Create the next valid semantic version:
+
+```bash
+./scripts/release.sh patch
+```
+
+### Deployment failed
+
+Check the failed workflow under **GitHub → Actions**. Common causes include build errors, missing dependencies, an incorrect `BASE_PATH`, or GitHub Pages permissions.
+
+---
+
+## 🙌 Credits
+
+- **Typography:** [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) and [Inter](https://fonts.google.com/specimen/Inter)
+- **Photography:** Nimboni Farm drone and farm photography
+- **Brand mark:** Custom neem-sprig identity
+- **Icons:** Custom SVG artwork
+
+---
+
+<div align="center">
+
 Built with 🌱 for regenerative agriculture.
+
+</div>
