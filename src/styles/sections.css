@@ -177,6 +177,11 @@
     z-index: 2;
   }
 
+  .hdr:not(.is-scrolled) .hdr__burger {
+    color: var(--paper);
+    border-color: rgba(248, 243, 233, 0.42);
+  }
+
   .hdr__nav {
     position: fixed;
     inset: 0;
