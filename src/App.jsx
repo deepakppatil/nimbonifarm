@@ -4,6 +4,7 @@ import Hero from './components/Hero.jsx'
 import Marquee from './components/Marquee.jsx'
 import Story from './components/Story.jsx'
 import Experiences from './components/Experiences.jsx'
+import Stay from './components/Stay.jsx'
 import Forest from './components/Forest.jsx'
 import Gallery from './components/Gallery.jsx'
 import Team from './components/Team.jsx'
@@ -30,13 +31,14 @@ export default function App() {
         <Hero />
         <Marquee />
         <Story />
-        <Experiences onChoose={choose} />
         <Forest />
         <Gallery />
-        <Team />
-        <Voices />
+        <Experiences onChoose={choose} />
+        <Stay />
         <Booking intent={intent} onIntentHandled={clearIntent} />
         <Visit />
+        <Voices />
+        <Team />        
         <Faq />
       </main>
       <Footer />

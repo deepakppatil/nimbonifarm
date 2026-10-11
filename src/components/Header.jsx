@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Icon, Logo, WhatsAppGlyph } from './Icons.jsx'
 import { FARM, NAV, CONTACTS, whatsappLink } from '../data/site.js'
 import { useScrolled, useScrollProgress, useActiveSection, useScrollTo } from '../lib/hooks.js'
@@ -11,6 +11,15 @@ export default function Header() {
   const active = useActiveSection(['hero', ...SECTION_IDS])
   const scrollTo = useScrollTo()
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [menuOpen])
 
   const go = (id) => {
     setMenuOpen(false)
@@ -32,10 +41,10 @@ export default function Header() {
           }}
           aria-label={`${FARM.name} — back to top`}
         >
-          <Logo size="md" tone={scrolled ? 'dark' : 'light'} className="hdr__mark" />
+          <Logo size="md" tone={scrolled || menuOpen ? 'dark' : 'light'} className="hdr__mark" />
         </a>
 
-        <nav className={`hdr__nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main">
+        <nav id="primary-nav" className={`hdr__nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main">
           <ul className="hdr__list">
             {NAV.map((item) => (
               <li key={item.id}>

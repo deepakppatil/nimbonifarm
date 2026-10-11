@@ -64,12 +64,12 @@ export function Lightbox({ index, onClose, onPrev, onNext }) {
           {item.type === 'video' ? (
             <video
               className="lb__media"
-              src="/media/drone-hero.mp4"
-              poster="/media/drone-poster.webp"
+              src={item.src}
+              poster={item.poster}
               controls
-              autoPlay={!prefersReducedMotion()}
-              loop
-              muted
+              autoPlay={item.autoPlay && !prefersReducedMotion()}
+              loop={item.loop}
+              muted={item.muted}
               playsInline
             />
           ) : (
